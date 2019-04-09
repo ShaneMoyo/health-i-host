@@ -19,6 +19,10 @@ const schema = new Schema({
     min: 0.5,
     max: 4,
     required: true
+  },
+  date: {
+    type: Date,
+    required: true
   }
 });
 

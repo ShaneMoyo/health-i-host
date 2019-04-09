@@ -11,15 +11,18 @@ describe('Appointment API', () => {
   const testAppointment = [
     {
       type: 'massage',
-      duration: 1
+      duration: 1,
+      date: new Date(2018, 11, 24, 10, 33, 30, 0)
     },
     {
       type: 'movement',
-      duration: 2
+      duration: 2,
+      date: new Date(2018, 11, 24, 10, 33, 30, 0)
     },
     {
       type: 'mineral',
-      duration: 3
+      duration: 3,
+      date: new Date(2018, 11, 24, 10, 33, 30, 0)
     }
   ];
   beforeEach(() => mongoose.connection.dropDatabase());
