@@ -14,9 +14,12 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && npm run copy",
+    "copy": "rimraf ../server/public && copyfiles -R ./build/* ../server/public",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
+    "build-css": "node-sass-chokidar --include-path ./src/styles src/ -o src/"
   },
   "eslintConfig": {
     "extends": "react-app"
