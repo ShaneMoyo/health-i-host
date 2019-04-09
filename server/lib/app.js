@@ -2,13 +2,17 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const errorHandler = require('./utils/error-handler');
+const ensureAuth = require('./utils/ensure-auth')();
 
 app.use(morgan('dev'));
 app.use(express.static('./public'));
 app.use(express.json());
 
 const auth = require('./routes/auth');
+const appointments = require('./routes/appointments');
+
 app.use('/api/auth', auth);
+app.use('/api/appointments', ensureAuth, appointments);
 app.use(errorHandler());
 
 module.exports = app;
