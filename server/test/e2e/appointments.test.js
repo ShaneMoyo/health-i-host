@@ -12,17 +12,20 @@ describe('Appointment API', () => {
     {
       type: 'massage',
       duration: 1,
-      date: new Date(2018, 11, 24, 10, 33, 30, 0)
+      date: new Date(2018, 11, 24, 10, 33, 30, 0),
+      status: 'pending'
     },
     {
       type: 'movement',
       duration: 2,
-      date: new Date(2018, 11, 24, 10, 33, 30, 0)
+      date: new Date(2018, 11, 24, 10, 33, 30, 0),
+      status: 'pending'
     },
     {
       type: 'mineral',
       duration: 3,
-      date: new Date(2018, 11, 24, 10, 33, 30, 0)
+      date: new Date(2018, 11, 24, 10, 33, 30, 0),
+      status: 'pending'
     }
   ];
   beforeEach(() => mongoose.connection.dropDatabase());

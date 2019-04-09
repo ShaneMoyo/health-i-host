@@ -10,6 +10,7 @@ describe('Appointment model', () => {
     assert.equal(errors.user.kind, 'required');
     assert.equal(errors.duration.kind, 'required');
     assert.equal(errors.date.kind, 'required');
+    assert.equal(errors.status.kind, 'required');
   });
 
   it('throws errors for incorrect data types', () => {
@@ -18,11 +19,13 @@ describe('Appointment model', () => {
       user: {},
       duration: {},
       date: {},
+      status: {}
     });
     const { errors } = resource.validateSync();
     assert.equal(errors.type.kind, 'String');
     assert.equal(errors.user.kind, 'ObjectID');
     assert.equal(errors.duration.kind, 'Number');
     assert.equal(errors.date.kind, 'Date');
+    assert.equal(errors.status.kind, 'String');
   });
 });
