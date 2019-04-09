@@ -11,12 +11,15 @@ describe('Appointment API', () => {
   const testAppointment = [
     {
       type: 'massage',
+      duration: 1
     },
     {
       type: 'movement',
+      duration: 2
     },
     {
       type: 'mineral',
+      duration: 3
     }
   ];
   beforeEach(() => mongoose.connection.dropDatabase());

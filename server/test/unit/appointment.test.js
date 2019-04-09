@@ -8,6 +8,7 @@ describe('Appointment model', () => {
     const { errors } = resource.validateSync();
     assert.equal(errors.type.kind, 'required');
     assert.equal(errors.user.kind, 'required');
+    assert.equal(errors.duration.kind, 'required');
   });
 
   it('throws errors for incorrect data types', () => {
