@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-const defaultUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/healthihost';
+const defaultUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/healthihost-playground';
 
 module.exports = function(dbUri = defaultUri) {
     const promise = mongoose.connect(dbUri);
-    
+
     mongoose.connection.on('connected', function () {
         console.log('Mongoose default connection open to ' + dbUri);
     });
