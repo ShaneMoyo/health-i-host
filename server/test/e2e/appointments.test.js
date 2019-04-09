@@ -10,13 +10,13 @@ describe('Appointment API', () => {
   let userId1 = '';
   const testAppointment = [
     {
-      type: 'Test resource 1',
+      type: 'massage',
     },
     {
-      type: 'Test resource 2',
+      type: 'movement',
     },
     {
-      type: 'Test resource 3',
+      type: 'mineral',
     }
   ];
   beforeEach(() => mongoose.connection.dropDatabase());
