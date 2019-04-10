@@ -10,8 +10,10 @@ app.use(express.json());
 
 const auth = require('./routes/auth');
 const appointments = require('./routes/appointments');
+const users = require('./routes/users');
 
 app.use('/api/auth', auth);
+app.use('/api/users', ensureAuth, users);
 app.use('/api/appointments', ensureAuth, appointments);
 app.use(errorHandler());
 

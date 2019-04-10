@@ -7,7 +7,8 @@ const requiredString = { type: String, required: true }
 const schema = new Schema({
   email: requiredString,
   hash: requiredString,
-  password: String
+  password: String,
+  roles: Array
 })
 
 schema.statics.emailExists = function(email) {
