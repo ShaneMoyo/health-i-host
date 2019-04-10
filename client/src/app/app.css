@@ -1,0 +1,78 @@
+
+html,body {
+  font-family: 'Roboto Condensed', 'Roboto';
+}
+
+h1 {
+  font-family: 'Roboto Condensed', serif;
+  font-weight: 700;
+  line-height: 46px;
+  font-size: 46px;
+  margin: 0 0 43px 0;
+  }
+h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 23px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 23px 0;
+  }
+p {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  line-height: 23px;
+  margin: 0 0 23px 0;
+  }
+
+
+.button.centered {
+  display: table;
+  margin: 0 auto;
+}
+
+.home-button {
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* .hero.is-info {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(124, 101, 8, 0.1)
+    ), url('../utils/images/background3.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+} */
+.hero .nav, .hero.is-success .nav {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.hero .subtitle {
+  padding: 3rem 0;
+  line-height: 1.5;
+}
+
+.hero-head{
+  position: fixed !important; top: 0; left: 0; right: 0; z-index: 1;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.navbar{
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
+  border-color: #efba61;
+}
+.navbar-menu{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* .mediatile{
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.6),
+      rgba(124, 101, 8, 0.1)
+    ), url('../utils/images/background3.jpg') no-repeat center center ;
+} */
