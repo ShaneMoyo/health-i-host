@@ -7,15 +7,15 @@ import Credentials from './Credentials';
 
 function Auth({ user, signin, signup, error, location, loading }) {
   const redirect = location.state ? location.state.from : '/';
-  
+
 
   if(user) return <Redirect to={redirect}/>;
-  
+
   return (
-    <div class="container has-text-centered">
+    <section class="hero is-fullheight has-text-centered is-warning login">
         <Switch>
           <Route path="/auth/signin" component={() => (
-            <div class="hero is-warning has-text-white">
+            <div class="is-warning has-text-white">
               <br/>
               <br/>
               <br/>
@@ -24,7 +24,7 @@ function Auth({ user, signin, signup, error, location, loading }) {
             </div>
           )}/>
           <Route path="/auth/signup" render={() => (
-            <div class="hero is-warning has-text-white">
+            <div class="is-warning has-text-white">
               <br/>
               <br/>
               <br/>
@@ -33,12 +33,12 @@ function Auth({ user, signin, signup, error, location, loading }) {
             </div>
           )}/>
         </Switch>
-    </div>
+    </section>
   );
 }
 
 export default withRouter(connect(
-  ({ auth, loading, error }) => ({ 
+  ({ auth, loading, error }) => ({
     user: auth.user,
     error,
     loading

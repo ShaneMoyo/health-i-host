@@ -34,6 +34,14 @@ p {
   margin: 0 0 23px 0;
   }
 
+.App{
+  height: 100% !important;
+  background-color: $warning;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 
 .button.centered {
   display: table;
@@ -48,13 +56,14 @@ p {
 .hero.is-info {
   background: linear-gradient(
       rgba(255, 255, 255, 0.6),
-      rgba(124, 101, 8, 0.1)
+      rgba(124, 101, 8, 0.6)
     ), url('../assets/images/palm-background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
+
 
 .hero .nav, .hero.is-success .nav {
   -webkit-box-shadow: none;
@@ -79,12 +88,6 @@ p {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* .mediatile{
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.6),
-      rgba(124, 101, 8, 0.1)
-    ), url('../utils/images/background3.jpg') no-repeat center center ;
-} */
 
 
 @import "../../node_modules/bulma/bulma";

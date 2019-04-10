@@ -23,6 +23,14 @@ p {
   line-height: 23px;
   margin: 0 0 23px 0; }
 
+.App {
+  height: 100% !important;
+  background-color: #eab22f;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover; }
+
 .button.centered {
   display: table;
   margin: 0 auto; }
@@ -32,7 +40,7 @@ p {
   border-radius: 10px; }
 
 .hero.is-info {
-  background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(124, 101, 8, 0.1)), url("../assets/images/palm-background.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(124, 101, 8, 0.6)), url("../assets/images/palm-background.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -62,12 +70,6 @@ p {
 .navbar-menu {
   background-color: rgba(255, 255, 255, 0.1); }
 
-/* .mediatile{
-  background: linear-gradient(
-      rgba(255, 255, 255, 0.6),
-      rgba(124, 101, 8, 0.1)
-    ), url('../utils/images/background3.jpg') no-repeat center center ;
-} */
 /*! bulma.io v0.6.2 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {

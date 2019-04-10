@@ -29,8 +29,8 @@ class App extends Component {
           </head>
           <Navigation/>
           <Routes/>
-
         </div>
+
       </Router>
     );
   }
