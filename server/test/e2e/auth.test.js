@@ -20,12 +20,16 @@ describe('Auth API', () => {
   it('throws error if email already exists',() => {
   return request.post('/api/auth')
     .send({
+      firstName: 'test',
+      lastName: 'test',
       email: 'test@test.com',
       password: 'password'
     })
     .then(()=> {
       return request.post('/api/auth')
         .send({
+          firstName: 'test',
+          lastName: 'test',
           email: 'test@test.com',
           password: 'password'
         })
@@ -36,6 +40,8 @@ describe('Auth API', () => {
   it('Should throw an error if password is not included', () => {
     return request.post('/api/auth')
         .send({
+            firstName: 'test',
+            lastName: '1',
             email: 'test2@test.com',
             password: ''
         })
@@ -45,6 +51,8 @@ describe('Auth API', () => {
   it('Should signin with valid credentials', () => {
     return request.post('/api/auth')
     .send({
+        firstName: 'test',
+        lastName: '1',
         email: 'test@test.com',
         password: 'password'
     })
@@ -52,6 +60,8 @@ describe('Auth API', () => {
       return request
         .post('/api/auth/signin')
         .send({
+            firstName: 'test',
+            lastName: '1',
             email: 'test@test.com',
             password: 'password'
         })

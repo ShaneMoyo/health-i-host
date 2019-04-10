@@ -7,6 +7,8 @@ const requiredString = { type: String, required: true }
 const schema = new Schema({
   email: requiredString,
   hash: requiredString,
+  firstName: requiredString,
+  lastName: requiredString,
   password: String,
   roles: Array
 })

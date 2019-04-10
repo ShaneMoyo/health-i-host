@@ -33,12 +33,16 @@ describe('Appointment API', () => {
     return Promise.all([
       request.post('/api/auth/')
         .send({
+          firstName: 'test',
+          lastName: '1',
           email: 'test1@test.com',
           password: 'password'
         })
         .then(({ body })  => token1 = body ),
       request.post('/api/auth/')
         .send({
+          firstName: 'test',
+          lastName: '2',
           email: 'test2@test.com',
           password: 'password'
         })
