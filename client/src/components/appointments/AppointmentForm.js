@@ -9,7 +9,17 @@ import 'rc-time-picker/assets/index.css';
 
 export default class MyApp extends Component {
   state = {
-    date: moment()
+    date: moment(),
+    type: 'massage',
+    duration: 0.5
+  }
+
+  onTypeChange = type => {
+    this.setState({ type: type.value });
+  }
+
+  onDurationChange = duration => {
+    this.setState({ durration: duration.value });
   }
 
   onDateChange = date => {
@@ -33,15 +43,28 @@ export default class MyApp extends Component {
   }
 
   handleSubmit = () => {
-    console.log('appointment', this.state.date);
+    const { date, type, duration } = this.state;
+    const newAppointment = {
+      date,
+      type,
+      duration,
+      status: 'pending'
+    }
+    console.log('appointment', this.state);
   }
 
   render() {
     const now = moment().hour(0).minute(0);
-    const options = [
+    const typeOptions = [
       { value: 'massage', label: 'Massage Therapy' },
       { value: 'mineral', label: 'Mineral Consultation' },
       { value: 'movement', label: 'Movement' }
+    ];
+    const durationOptions = [
+      { value: 0.5, label: '30 Minutes' },
+      { value: 1, label: '1 Hour' },
+      { value: 1.5, label: '1.5 Hours ' },
+      { value: 2, label: '2 Hours' }
     ];
 
     return (
@@ -51,20 +74,27 @@ export default class MyApp extends Component {
             <div class="animated fadeIn title is-4">Schedule an Appointment</div>
 
             <div class="field">
-              <Select defaultValue="select a service" options={options} />
+              <Select defaultValue="select a service" options={typeOptions} onChange={this.onTypeChange}/>
             </div>
             <hr/>
+
             <div class="field">
               <DayPicker onDayClick={this.onDateChange}/>
+            </div>
+            <div class="field">
               <TimePicker
                  showSecond={false}
-                 defaultValue={now}
+                 defaultValue={this.state.date}
                  className="xxx"
                  onChange={this.onTimeChange}
                  format='h:mm a'
                  use12Hours
                  inputReadOnly
                />
+            </div>
+            <hr/>
+            <div class="field">
+              <Select defaultValue="select a service" options={durationOptions} onChange={this.onTypeChange}/>
             </div>
             <hr/>
             <div class="field">
