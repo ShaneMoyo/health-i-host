@@ -9,39 +9,35 @@ import 'rc-time-picker/assets/index.css';
 
 export default class MyApp extends Component {
   state = {
-
-  }
-
-  getDate = () => {
-    const now = moment().hour(0).minute(0);
-    const { month, day, timeHour, timeMinutes } = this.state;
-    if (!month || !day || !timeHour || !timeMinutes) {
-      return now;
-    } else {
-      const newDate = new Date(2019, month, day, timeHour, timeMinutes);
-      console.log('returning ', newDate);
-      return newDate.toDateString()
-    }
+    date: moment()
   }
 
   onDateChange = date => {
-    if (!date) return
-    this.setState({ month: date.getMonth(), day: date.getDate() })
+    if (!date) return;
+
+    const { date: currentDate } = this.state;
+    const newDate = moment(date);
+    const day = newDate.date();
+    const month = newDate.month();
+    this.setState({ date: currentDate.date(day).month(month) })
   }
 
-  onTimeChange = date => {
-    if (!date) return
-    this.setState({ timeMinutes: date.format("mm"), timeHour: date.format("hh"), ampm: date.format("a")})
+  onTimeChange = time => {
+    if (!time) return;
+
+    const { date: currentDate } = this.state;
+    const newTime = moment(time);
+    const day = newTime.hour();
+    const month = newTime.minute();
+    this.setState({ date: currentDate.hour(day).minute(month) })
   }
 
   handleSubmit = () => {
-
-    console.log('appointment', this.getDate().toDateString())
+    console.log('appointment', this.state.date);
   }
 
   render() {
     const now = moment().hour(0).minute(0);
-    const selectedDates = this.getDate();
     const options = [
       { value: 'massage', label: 'Massage Therapy' },
       { value: 'mineral', label: 'Mineral Consultation' },
@@ -59,7 +55,6 @@ export default class MyApp extends Component {
             </div>
             <hr/>
             <div class="field">
-
               <DayPicker onDayClick={this.onDateChange}/>
               <TimePicker
                  showSecond={false}
