@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import moment from 'moment'
 import Select from 'react-select'
 import DayPicker from 'react-day-picker';
 import TimePicker from 'rc-time-picker';
+import { bookAppointment } from './actions';
+import { NavLink } from 'react-router-dom';
+
 
 import 'react-day-picker/lib/style.css';
 import 'rc-time-picker/assets/index.css';
 
-export default class MyApp extends Component {
+const NavBarLink = props => <NavLink {...props}
+className="nav-link"
+activeClassName="active"
+/>;
+class AppointmentForm extends Component {
   state = {
     date: moment(),
     type: 'massage',
-    duration: 0.5
+    duration: 0.5,
+    appoitmentBooked: false
   }
 
   onTypeChange = type => {
@@ -51,6 +60,12 @@ export default class MyApp extends Component {
       status: 'pending'
     }
     console.log('appointment', this.state);
+    return this.props.bookAppointment(newAppointment)
+      .then(() => {
+        console.log('!this.state.appoitmentBooked: ', !this.state.appoitmentBooked)
+        this.setState({ appoitmentBooked: !this.state.appoitmentBooked })
+      })
+
   }
 
   render() {
@@ -71,38 +86,49 @@ export default class MyApp extends Component {
       <section class="hero is-warning is-fullheight">
         <div class="column is-waring is-6 is-offset-3">
           <div class="box animated fadeIn is-warning" >
-            <div class="animated fadeIn title is-4">Schedule an Appointment</div>
 
-            <div class="field">
-              <Select defaultValue="select a service" options={typeOptions} onChange={this.onTypeChange}/>
-            </div>
-            <hr/>
 
-            <div class="field">
-              <DayPicker onDayClick={this.onDateChange}/>
-            </div>
-            <div class="field">
-              <TimePicker
-                 showSecond={false}
-                 defaultValue={this.state.date}
-                 className="xxx"
-                 onChange={this.onTimeChange}
-                 format='h:mm a'
-                 use12Hours
-                 inputReadOnly
-               />
-            </div>
-            <hr/>
-            <div class="field">
-              <Select defaultValue="select a service" options={durationOptions} onChange={this.onTypeChange}/>
-            </div>
-            <hr/>
-            <div class="field">
-              <label class="label"></label>
-              <button class="button is-medium is-info" onClick={this.handleSubmit}>Book Appointment</button>
-            </div>
+              { this.state.appoitmentBooked ?
+                <div>
+                  <div class="animated fadeIn title is-6">Appointment Booked Succesfully</div>
+                  <br/>
+                  <div class="animated fadeIn button is-info is-large"><NavBarLink exact to="/appointment/me">Proceed to My Appointments</NavBarLink></div>
+                </div> :
+                <div>
+                  <div class="animated fadeIn title is-4">Schedule an Appointment</div>
+                  <div class="field">
+                  <Select defaultValue="select a service" options={typeOptions} onChange={this.onTypeChange}/>
+                  </div>
+                  <hr/>
 
-            <br/>
+                  <div class="field">
+                  <DayPicker onDayClick={this.onDateChange}/>
+                  </div>
+                  <div class="field">
+                  <TimePicker
+                  showSecond={false}
+                  defaultValue={this.state.date}
+                  className="xxx"
+                  onChange={this.onTimeChange}
+                  format='h:mm a'
+                  use12Hours
+                  inputReadOnly
+                  />
+                  </div>
+                  <hr/>
+                  <div class="field">
+                  <Select defaultValue="select a service" options={durationOptions} onChange={this.onTypeChange}/>
+                  </div>
+                  <hr/>
+                  <div class="field">
+                  <label class="label"></label>
+                  <button class="button is-medium is-info" onClick={this.handleSubmit}>Book Appointment</button>
+                  </div>
+                </div>
+              }
+
+
+              <br/>
 
             <br/>
           </div>
@@ -111,3 +137,9 @@ export default class MyApp extends Component {
     );
   }
 }
+
+export default connect(({ auth, loading }) => ({
+  user: auth.user,
+  loading
+}), { bookAppointment }
+)(AppointmentForm);
