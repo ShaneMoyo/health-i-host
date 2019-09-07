@@ -10,7 +10,7 @@ import Landing from '../components/landing/landing';
 // import Minerals from '../components/minerals/Minerals';
 // import Movement from '../components/movement/Movement'
 import Appointment from '../components/appointments/Appointment';
-// import MyAppointments from '../components/appointments/MyAppointments';
+import MyAppointments from '../components/appointments/MyAppointments';
 import Auth from '../components/auth/Auth';
 
 export default () => (
@@ -18,6 +18,7 @@ export default () => (
     <Route exact path="/" render={() => <Landing/>}/>;
     <Route path="/auth" render={() => <Auth/>}/>
     <PrivateRoute exact path="/appointment" render={() => <Appointment/>}/>;
+    <PrivateRoute exact path="/appointment/me" render={() => <MyAppointments/>}/>;
     <Redirect to="/"/>
   </Switch>
 );
