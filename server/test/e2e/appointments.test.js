@@ -13,13 +13,13 @@ describe('Appointment API', () => {
       type: 'massage',
       duration: 1,
       date: new Date(2018, 11, 24, 10, 33, 30, 0),
-      status: 'pending'
+      status: 'cancelled'
     },
     {
       type: 'movement',
       duration: 2,
       date: new Date(2018, 11, 24, 10, 33, 30, 0),
-      status: 'pending'
+      status: 'fullfilled'
     },
     {
       type: 'mineral',
@@ -133,8 +133,9 @@ describe('Appointment API', () => {
                   .send(testAppointment[1]);
           })
           .then(({ body: updatedAppointemnt }) => {
+              console.log('updatedAppointemnt: ', updatedAppointemnt)
               assert.deepEqual(updatedAppointemnt.service, testAppointment[1].service);
-              assert.deepEqual(updatedAppointemnt.fulfilled, testAppointment[0].fulfilled);
+              assert.deepEqual(updatedAppointemnt.status, testAppointment[0].status);
           });
   });
 
