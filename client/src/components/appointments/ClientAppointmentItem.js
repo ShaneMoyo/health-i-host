@@ -20,7 +20,6 @@ class ClientAppointmentItem extends Component{
   }
 
   handleNewNote = value => {
-    console.log('newNote', value)
     this.setState({ newNote: value })
   }
 
@@ -30,6 +29,7 @@ class ClientAppointmentItem extends Component{
       update.cancelled = true
     }
     if(this.state.newNote !== '') {
+      console.log('new Note')
       update.note = this.state.newNote
     }
     return this.props.updateAppointment(update)
