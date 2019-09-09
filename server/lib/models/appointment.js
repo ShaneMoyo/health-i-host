@@ -28,6 +28,9 @@ const schema = new Schema({
     type: String,
     enum: ['pending', 'accepted', 'rejected', 'fullfilled', 'cancelled'],
     required: true
+  },
+  note: {
+    type: String,
   }
 });
 

@@ -45,18 +45,20 @@ module.exports = router
   })
 
   .put('/me/:id', (req, res, next) => {
+    console.log('hererere')
     const { id }= req.params;
     const { id: tokenId } = req.user;
-    const { type, date, user: userId } = req.body;
+    const { type, date, note, user: userId } = req.body;
     const isMe = tokenId === userId
     if (!id || !isMe ) {
       console.log('here', tokenId, userId )
       const error = !isMe ?
         { code: 401, error: 'unauthorized'} :
         { code: 404, error: `id ${id} does not exist`}
+        console.log('here', error )
         next(err);
     }
-    const update = { type, date }
+    const update = { type, date, note };
     Appointment.findByIdAndUpdate({ _id: id }, update, { new: true , runValidators: true })
         .lean()
         .then(updatedAppointment => res.json(updatedAppointment));

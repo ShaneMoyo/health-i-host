@@ -19,7 +19,8 @@ describe('Appointment API', () => {
       type: 'movement',
       duration: 2,
       date: new Date(2018, 11, 24, 10, 33, 30, 0),
-      status: 'fullfilled'
+      status: 'fullfilled',
+      note: 'I AM A NOTE'
     },
     {
       type: 'mineral',
