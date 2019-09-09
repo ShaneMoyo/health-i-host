@@ -48,8 +48,9 @@ module.exports = router
     console.log('hererere')
     const { id }= req.params;
     const { id: tokenId } = req.user;
-    const { type, date, note, user: userId } = req.body;
-    const isMe = tokenId === userId._id
+    let { type, date, note, user: userId } = req.body;
+    userId = userId._id ? userId._id : userId;
+    const isMe = tokenId === userId
     if (!id || !isMe ) {
       console.log('here', tokenId, 'userID: ', userId._id )
       const error = !isMe ?
