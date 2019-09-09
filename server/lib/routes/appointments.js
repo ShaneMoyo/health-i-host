@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Appointment = require('../models/appointment');
+const ensureRole = require('../../lib/utils/ensure-role');
 
 module.exports = router
 
@@ -29,7 +30,7 @@ module.exports = router
       .catch(next);
   })
 
-  .delete('/:id', (req, res, next) => {
+  .delete('/:id', ensureRole(['admin']), (req, res, next) => {
     return Appointment.findOneAndRemove({'_id' : req.params.id, user: req.user.id})
         .then(result => {
           console.log('removing!', result);

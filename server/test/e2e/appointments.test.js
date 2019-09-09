@@ -36,7 +36,8 @@ describe('Appointment API', () => {
           firstName: 'test',
           lastName: '1',
           email: 'test1@test.com',
-          password: 'password'
+          password: 'password',
+          roles: ['admin']
         })
         .then(({ body })  => token1 = body ),
       request.post('/api/auth/')
@@ -118,6 +119,23 @@ describe('Appointment API', () => {
           });
         });
       });
-    })
+  })
+
+  it('Should update(limited) my appointment by id', () => {
+      return request.post('/api/appointments')
+          .set('Authorization', token2)
+          .send(testAppointment[0])
+          .then(({ body: savedAppointemnt }) => savedAppointemnt)
+          .then(savedAppointemnt => {
+              testAppointment[1].user = savedAppointemnt.user;
+              return request.put(`/api/appointments/me/${savedAppointemnt._id}`)
+                  .set('Authorization', token2)
+                  .send(testAppointment[1]);
+          })
+          .then(({ body: updatedAppointemnt }) => {
+              assert.deepEqual(updatedAppointemnt.service, testAppointment[1].service);
+              assert.deepEqual(updatedAppointemnt.fulfilled, testAppointment[0].fulfilled);
+          });
+  });
 
 })

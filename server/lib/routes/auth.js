@@ -14,6 +14,7 @@ module.exports = router
     User.emailExists(email)
       .then(exists => {
         if (exists) throw { code: 400, error: 'Email already exists.' };
+        //req.body.roles = ['admin'];
         const user = new User(req.body);
         user.generateHash(password);
         return user.save();
