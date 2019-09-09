@@ -36,15 +36,16 @@ class ClientAppointmentItem extends Component{
       .then(()=> { !cancel && this.setState({ inputNote: !this.state.inputNote })})
 
   }
-  
+
   render(){
     const { appointment, loading } = this.props;
+    console.log('appointment: ', appointment);
     let status = appointment.fulfilled ? 'Confirmed' : 'Pending';
     appointment.cancelled ? status = 'Cancelled' : null;
     return(
       <article class="animated slideInUp message is-warning">
         <div class="message-header">
-          Service type: {appointment.service}
+          Service type: {appointment.type}
           <button onClick={() => this.handleClientUpdate(true)} class="delete" aria-label="delete"></button>
         </div>
         <div class="message-body">
@@ -58,7 +59,7 @@ class ClientAppointmentItem extends Component{
             </div>
 
             <br/>
-            
+
             <div class="control">
               <div class="tags has-addons">
                 <span class="tag is-warning">Status</span>
@@ -67,7 +68,7 @@ class ClientAppointmentItem extends Component{
             </div>
 
           </div>
-          { this.state.inputNote ? 
+          { this.state.inputNote ?
           <div class="message is-info">
             <div class="message-header is-info">
               Notes
@@ -78,16 +79,16 @@ class ClientAppointmentItem extends Component{
             </div>
           </div> : null }
 
-        { appointment.notes && !this.state.inputNote ? 
+        { appointment.notes && !this.state.inputNote ?
         <div>
           <article class="message is-info">
             <div class="message-header is-info">Notes</div>
             <div class="message-body is-info">{appointment.notes}</div>
-          </article> 
+          </article>
           <hr/>
         </div> : null }
 
-        { !this.state.inputNote ? 
+        { !this.state.inputNote ?
         <div class="button is-info is-outlined" onClick={() => this.handleInputNote()}>{appointment.notes ? 'Edit Note' : 'Add Note'}</div> :
         <div class={ loading ?"button is-loading is-info is-outlined" : "button is-info is-outlined"} onClick={() => this.handleClientUpdate()}>Submit Note</div> }
 
