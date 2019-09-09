@@ -30,7 +30,7 @@ class ClientAppointmentItem extends Component{
       update.cancelled = true
     }
     if(this.state.newNote !== '') {
-      update.notes = this.state.newNote
+      update.note = this.state.newNote
     }
     return this.props.updateAppointment(update)
       .then(()=> { !cancel && this.setState({ inputNote: !this.state.inputNote })})
@@ -75,21 +75,21 @@ class ClientAppointmentItem extends Component{
               <button onClick={() => this.handleInputNote()} class="delete" aria-label="delete"></button>
             </div>
             <div class="message-body is-info">
-              <textarea class="textarea" placeholder={appointment.notes ? JSON.stringify(appointment.notes) :"Add note"} name="note" onChange={({ target }) => this.handleNewNote(target.value)}></textarea>
+              <textarea class="textarea" placeholder={appointment.note ? JSON.stringify(appointment.note) :"Add note"} name="note" onChange={({ target }) => this.handleNewNote(target.value)}></textarea>
             </div>
           </div> : null }
 
-        { appointment.notes && !this.state.inputNote ?
+        { appointment.note && !this.state.inputNote ?
         <div>
           <article class="message is-info">
             <div class="message-header is-info">Notes</div>
-            <div class="message-body is-info">{appointment.notes}</div>
+            <div class="message-body is-info">{appointment.note}</div>
           </article>
           <hr/>
         </div> : null }
 
         { !this.state.inputNote ?
-        <div class="button is-info is-outlined" onClick={() => this.handleInputNote()}>{appointment.notes ? 'Edit Note' : 'Add Note'}</div> :
+        <div class="button is-info is-outlined" onClick={() => this.handleInputNote()}>{appointment.note ? 'Edit Note' : 'Add Note'}</div> :
         <div class={ loading ?"button is-loading is-info is-outlined" : "button is-info is-outlined"} onClick={() => this.handleClientUpdate()}>Submit Note</div> }
 
       </div>

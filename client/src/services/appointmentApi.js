@@ -5,7 +5,7 @@ export default {
     const path = id ? `/appointments/${id}` : '/appointments';
     return request.get(path);
   },
-  
+
   getMy() {
     return request.get('/appointments/me');
   },
@@ -15,7 +15,7 @@ export default {
   },
 
   update(appointment) {
-    return request.update(`/appointments/${appointment._id}`, appointment);
+    return request.update(`/appointments/me/${appointment._id}`, appointment);
   },
 
   remove(id) {

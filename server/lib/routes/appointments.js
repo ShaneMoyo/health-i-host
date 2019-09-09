@@ -49,9 +49,9 @@ module.exports = router
     const { id }= req.params;
     const { id: tokenId } = req.user;
     const { type, date, note, user: userId } = req.body;
-    const isMe = tokenId === userId
+    const isMe = tokenId === userId._id
     if (!id || !isMe ) {
-      console.log('here', tokenId, userId )
+      console.log('here', tokenId, 'userID: ', userId._id )
       const error = !isMe ?
         { code: 401, error: 'unauthorized'} :
         { code: 404, error: `id ${id} does not exist`}
