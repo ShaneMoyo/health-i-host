@@ -45,10 +45,9 @@ module.exports = router
   })
 
   .put('/me/:id', (req, res, next) => {
-    console.log('hererere')
     const { id }= req.params;
     const { id: tokenId } = req.user;
-    let { type, date, note, user: userId } = req.body;
+    let { type, date, note, user: userId, status } = req.body;
     userId = userId._id ? userId._id : userId;
     const isMe = tokenId === userId
     if (!id || !isMe ) {
@@ -59,7 +58,10 @@ module.exports = router
         console.log('here', error )
         next(err);
     }
-    const update = { type, date, note };
+    const update = { type, date, note, status };
+    if (status !== 'cancelled') {
+        delete update.status;
+    }
     Appointment.findByIdAndUpdate({ _id: id }, update, { new: true , runValidators: true })
         .lean()
         .then(updatedAppointment => res.json(updatedAppointment));

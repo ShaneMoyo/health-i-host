@@ -4,7 +4,7 @@ import { loadMyAppointments, bookAppointment, loadAllAppointments } from './acti
 import ClientAppointmentItem from './ClientAppointmentItem';
 import AdminAppointmentItem from './AdminAppointmentItem';
 
-class MyAppointments extends Component { 
+class MyAppointments extends Component {
   componentDidMount() {
     if(this.props.user.roles[0] === 'admin') return this.props.loadAllAppointments();
     return this.props.loadMyAppointments();
@@ -13,8 +13,9 @@ class MyAppointments extends Component {
   render(){
     const { appointments, loading, user} = this.props;
     const MyAppointments = appointments.map(appointment => {
+      if (appointment.status === 'cancelled') return;
       const isAdmin = user.roles[0] === 'admin';
-      const appointmentItem = isAdmin ? 
+      const appointmentItem = isAdmin ?
       <AdminAppointmentItem appointment={ appointment }/> :
       <ClientAppointmentItem appointment={ appointment }/>
       return appointmentItem

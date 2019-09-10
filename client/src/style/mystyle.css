@@ -202,7 +202,7 @@ a {
 
 code {
   background-color: whitesmoke;
-  color: #ff3860;
+  color: #FF0000;
   font-size: 0.875em;
   font-weight: normal;
   padding: 0.25em 0.5em 0.25em; }
@@ -617,10 +617,10 @@ a.has-text-warning:hover, a.has-text-warning:focus {
   color: #d19915 !important; }
 
 .has-text-danger {
-  color: #ded9d6 !important; }
+  color: #FF0000 !important; }
 
 a.has-text-danger:hover, a.has-text-danger:focus {
-  color: #c7bfba !important; }
+  color: #cc0000 !important; }
 
 .has-text-black-bis {
   color: #121212 !important; }
@@ -1586,60 +1586,60 @@ a.box:active {
         box-shadow: none;
         color: rgba(0, 0, 0, 0.7); }
   .button.is-danger {
-    background-color: #ded9d6;
+    background-color: #FF0000;
     border-color: transparent;
     color: #fff; }
     .button.is-danger:hover, .button.is-danger.is-hovered {
-      background-color: #d8d2cf;
+      background-color: #f20000;
       border-color: transparent;
       color: #fff; }
     .button.is-danger:focus, .button.is-danger.is-focused {
       border-color: transparent;
       color: #fff; }
       .button.is-danger:focus:not(:active), .button.is-danger.is-focused:not(:active) {
-        box-shadow: 0 0 0 0.125em rgba(222, 217, 214, 0.25); }
+        box-shadow: 0 0 0 0.125em rgba(255, 0, 0, 0.25); }
     .button.is-danger:active, .button.is-danger.is-active {
-      background-color: #d3ccc8;
+      background-color: #e60000;
       border-color: transparent;
       color: #fff; }
     .button.is-danger[disabled] {
-      background-color: #ded9d6;
+      background-color: #FF0000;
       border-color: transparent;
       box-shadow: none; }
     .button.is-danger.is-inverted {
       background-color: #fff;
-      color: #ded9d6; }
+      color: #FF0000; }
       .button.is-danger.is-inverted:hover {
         background-color: #f2f2f2; }
       .button.is-danger.is-inverted[disabled] {
         background-color: #fff;
         border-color: transparent;
         box-shadow: none;
-        color: #ded9d6; }
+        color: #FF0000; }
     .button.is-danger.is-loading:after {
       border-color: transparent transparent #fff #fff !important; }
     .button.is-danger.is-outlined {
       background-color: transparent;
-      border-color: #ded9d6;
-      color: #ded9d6; }
+      border-color: #FF0000;
+      color: #FF0000; }
       .button.is-danger.is-outlined:hover, .button.is-danger.is-outlined:focus {
-        background-color: #ded9d6;
-        border-color: #ded9d6;
+        background-color: #FF0000;
+        border-color: #FF0000;
         color: #fff; }
       .button.is-danger.is-outlined.is-loading:after {
-        border-color: transparent transparent #ded9d6 #ded9d6 !important; }
+        border-color: transparent transparent #FF0000 #FF0000 !important; }
       .button.is-danger.is-outlined[disabled] {
         background-color: transparent;
-        border-color: #ded9d6;
+        border-color: #FF0000;
         box-shadow: none;
-        color: #ded9d6; }
+        color: #FF0000; }
     .button.is-danger.is-inverted.is-outlined {
       background-color: transparent;
       border-color: #fff;
       color: #fff; }
       .button.is-danger.is-inverted.is-outlined:hover, .button.is-danger.is-inverted.is-outlined:focus {
         background-color: #fff;
-        color: #ded9d6; }
+        color: #FF0000; }
       .button.is-danger.is-inverted.is-outlined[disabled] {
         background-color: transparent;
         border-color: #fff;
@@ -2048,13 +2048,13 @@ a.box:active {
       box-shadow: 0 0 0 0.125em rgba(234, 178, 47, 0.25); }
   .input.is-danger,
   .textarea.is-danger {
-    border-color: #ded9d6; }
+    border-color: #FF0000; }
     .input.is-danger:focus, .input.is-danger.is-focused, .input.is-danger:active, .input.is-danger.is-active,
     .textarea.is-danger:focus,
     .textarea.is-danger.is-focused,
     .textarea.is-danger:active,
     .textarea.is-danger.is-active {
-      box-shadow: 0 0 0 0.125em rgba(222, 217, 214, 0.25); }
+      box-shadow: 0 0 0 0.125em rgba(255, 0, 0, 0.25); }
   .input.is-small,
   .textarea.is-small {
     border-radius: 2px;
@@ -2252,9 +2252,9 @@ a.box:active {
     .select.is-warning select:focus, .select.is-warning select.is-focused, .select.is-warning select:active, .select.is-warning select.is-active {
       box-shadow: 0 0 0 0.125em rgba(234, 178, 47, 0.25); }
   .select.is-danger select {
-    border-color: #ded9d6; }
+    border-color: #FF0000; }
     .select.is-danger select:focus, .select.is-danger select.is-focused, .select.is-danger select:active, .select.is-danger select.is-active {
-      box-shadow: 0 0 0 0.125em rgba(222, 217, 214, 0.25); }
+      box-shadow: 0 0 0 0.125em rgba(255, 0, 0, 0.25); }
   .select.is-small {
     border-radius: 2px;
     font-size: 0.75rem; }
@@ -2446,19 +2446,19 @@ a.box:active {
     border-color: transparent;
     color: rgba(0, 0, 0, 0.7); }
   .file.is-danger .file-cta {
-    background-color: #ded9d6;
+    background-color: #FF0000;
     border-color: transparent;
     color: #fff; }
   .file.is-danger:hover .file-cta, .file.is-danger.is-hovered .file-cta {
-    background-color: #d8d2cf;
+    background-color: #f20000;
     border-color: transparent;
     color: #fff; }
   .file.is-danger:focus .file-cta, .file.is-danger.is-focused .file-cta {
     border-color: transparent;
-    box-shadow: 0 0 0.5em rgba(222, 217, 214, 0.25);
+    box-shadow: 0 0 0.5em rgba(255, 0, 0, 0.25);
     color: #fff; }
   .file.is-danger:active .file-cta, .file.is-danger.is-active .file-cta {
-    background-color: #d3ccc8;
+    background-color: #e60000;
     border-color: transparent;
     color: #fff; }
   .file.is-small {
@@ -2643,7 +2643,7 @@ a.box:active {
   .help.is-warning {
     color: #eab22f; }
   .help.is-danger {
-    color: #ded9d6; }
+    color: #FF0000; }
 
 .field:not(:last-child) {
   margin-bottom: 0.75rem; }
@@ -2977,7 +2977,7 @@ a.box:active {
     background-color: #eab22f;
     color: rgba(0, 0, 0, 0.7); }
   .notification.is-danger {
-    background-color: #ded9d6;
+    background-color: #FF0000;
     color: #fff; }
 
 .progress {
@@ -3056,11 +3056,11 @@ a.box:active {
   .progress.is-warning::-ms-fill {
     background-color: #eab22f; }
   .progress.is-danger::-webkit-progress-value {
-    background-color: #ded9d6; }
+    background-color: #FF0000; }
   .progress.is-danger::-moz-progress-bar {
-    background-color: #ded9d6; }
+    background-color: #FF0000; }
   .progress.is-danger::-ms-fill {
-    background-color: #ded9d6; }
+    background-color: #FF0000; }
   .progress.is-small {
     height: 0.75rem; }
   .progress.is-medium {
@@ -3125,8 +3125,8 @@ a.box:active {
       color: rgba(0, 0, 0, 0.7); }
     .table td.is-danger,
     .table th.is-danger {
-      background-color: #ded9d6;
-      border-color: #ded9d6;
+      background-color: #FF0000;
+      border-color: #FF0000;
       color: #fff; }
     .table td.is-narrow,
     .table th.is-narrow {
@@ -3260,7 +3260,7 @@ a.box:active {
     background-color: #eab22f;
     color: rgba(0, 0, 0, 0.7); }
   .tag:not(body).is-danger {
-    background-color: #ded9d6;
+    background-color: #FF0000;
     color: #fff; }
   .tag:not(body).is-medium {
     font-size: 1rem; }
@@ -3909,13 +3909,13 @@ a.dropdown-item {
       border-color: #eab22f;
       color: #46360f; }
   .message.is-danger {
-    background-color: #fafaf9; }
+    background-color: #fff5f5; }
     .message.is-danger .message-header {
-      background-color: #ded9d6;
+      background-color: #FF0000;
       color: #fff; }
     .message.is-danger .message-body {
-      border-color: #ded9d6;
-      color: #555555; }
+      border-color: #FF0000;
+      color: #ad0606; }
 
 .message-header {
   align-items: center;
@@ -4446,7 +4446,7 @@ a.dropdown-item {
         background-color: #eab22f;
         color: rgba(0, 0, 0, 0.7); } }
   .navbar.is-danger {
-    background-color: #ded9d6;
+    background-color: #FF0000;
     color: #fff; }
     .navbar.is-danger .navbar-brand > .navbar-item,
     .navbar.is-danger .navbar-brand .navbar-link {
@@ -4454,7 +4454,7 @@ a.dropdown-item {
     .navbar.is-danger .navbar-brand > a.navbar-item:hover, .navbar.is-danger .navbar-brand > a.navbar-item.is-active,
     .navbar.is-danger .navbar-brand .navbar-link:hover,
     .navbar.is-danger .navbar-brand .navbar-link.is-active {
-      background-color: #d3ccc8;
+      background-color: #e60000;
       color: #fff; }
     .navbar.is-danger .navbar-brand .navbar-link::after {
       border-color: #fff; }
@@ -4471,17 +4471,17 @@ a.dropdown-item {
       .navbar.is-danger .navbar-end > a.navbar-item.is-active,
       .navbar.is-danger .navbar-end .navbar-link:hover,
       .navbar.is-danger .navbar-end .navbar-link.is-active {
-        background-color: #d3ccc8;
+        background-color: #e60000;
         color: #fff; }
       .navbar.is-danger .navbar-start .navbar-link::after,
       .navbar.is-danger .navbar-end .navbar-link::after {
         border-color: #fff; }
       .navbar.is-danger .navbar-item.has-dropdown:hover .navbar-link,
       .navbar.is-danger .navbar-item.has-dropdown.is-active .navbar-link {
-        background-color: #d3ccc8;
+        background-color: #e60000;
         color: #fff; }
       .navbar.is-danger .navbar-dropdown a.navbar-item.is-active {
-        background-color: #ded9d6;
+        background-color: #FF0000;
         color: #fff; } }
   .navbar > .container {
     align-items: stretch;
@@ -6458,7 +6458,7 @@ label.panel-block {
         .hero.is-warning.is-bold .navbar-menu {
           background-image: linear-gradient(141deg, #dc7a0a 0%, #eab22f 71%, #f1da41 100%); } }
   .hero.is-danger {
-    background-color: #ded9d6;
+    background-color: #FF0000;
     color: #fff; }
     .hero.is-danger a:not(.button):not(.dropdown-item):not(.tag),
     .hero.is-danger strong {
@@ -6472,14 +6472,14 @@ label.panel-block {
         color: #fff; }
     @media screen and (max-width: 1023px) {
       .hero.is-danger .navbar-menu {
-        background-color: #ded9d6; } }
+        background-color: #FF0000; } }
     .hero.is-danger .navbar-item,
     .hero.is-danger .navbar-link {
       color: rgba(255, 255, 255, 0.7); }
     .hero.is-danger a.navbar-item:hover, .hero.is-danger a.navbar-item.is-active,
     .hero.is-danger .navbar-link:hover,
     .hero.is-danger .navbar-link.is-active {
-      background-color: #d3ccc8;
+      background-color: #e60000;
       color: #fff; }
     .hero.is-danger .tabs a {
       color: #fff;
@@ -6495,12 +6495,12 @@ label.panel-block {
     .hero.is-danger .tabs.is-boxed li.is-active a, .hero.is-danger .tabs.is-boxed li.is-active a:hover, .hero.is-danger .tabs.is-toggle li.is-active a, .hero.is-danger .tabs.is-toggle li.is-active a:hover {
       background-color: #fff;
       border-color: #fff;
-      color: #ded9d6; }
+      color: #FF0000; }
     .hero.is-danger.is-bold {
-      background-image: linear-gradient(141deg, #ceb9b3 0%, #ded9d6 71%, #ebe7e3 100%); }
+      background-image: linear-gradient(141deg, #cc0022 0%, #FF0000 71%, #ff401a 100%); }
       @media screen and (max-width: 768px) {
         .hero.is-danger.is-bold .navbar-menu {
-          background-image: linear-gradient(141deg, #ceb9b3 0%, #ded9d6 71%, #ebe7e3 100%); } }
+          background-image: linear-gradient(141deg, #cc0022 0%, #FF0000 71%, #ff401a 100%); } }
   .hero.is-small .hero-body {
     padding-bottom: 1.5rem;
     padding-top: 1.5rem; }
