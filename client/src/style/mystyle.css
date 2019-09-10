@@ -73,6 +73,9 @@ p {
 .navbar-menu {
   background-color: rgba(255, 255, 255, 0.1); }
 
+.react-datetime-picker__wrapper {
+  border: none !important; }
+
 /*! bulma.io v0.6.2 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {

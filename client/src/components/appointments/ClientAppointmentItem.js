@@ -67,18 +67,29 @@ class ClientAppointmentItem extends Component{
     return(
       <article class="animated slideInUp message is-warning">
         <div class="message-header">
-          Service type: {appointment.type}
+
+            <span class="tag is-info">{status}</span>
+
+
           <button onClick={() => this.toggleModal()} class="delete" aria-label="delete"></button>
         </div>
         <div class="message-body">
           <div class="field is-grouped is-grouped-multiline">
 
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-warning">Service type</span>
+              <span class={!appointment.fulfilled ? "tag is-success" : "tag is-danger"}>{appointment.type}</span>
+            </div>
+          </div>
             <div class="control">
               <div class="tags has-addons">
                 <span class="tag is-warning">Date</span>
                 {!this.state.editDate && <span onClick={() => this.editDate()}class="tag is-info">{moment(this.state.date).format('MM/DD/YYYY hh:mm a')}</span>}
                 {this.state.editDate && <span class="tag is-info">
                   <DateTimePicker
+                    clearIcon={null}
+                    calendarIcon={null}
                     onChange={this.newDate}
                     disableClock={true}
                     disableCalendar={true}
@@ -90,12 +101,6 @@ class ClientAppointmentItem extends Component{
 
             <br/>
 
-            <div class="control">
-              <div class="tags has-addons">
-                <span class="tag is-warning">Status</span>
-                <span class={!appointment.fulfilled ? "tag is-success" : "tag is-danger"}>{status}</span>
-              </div>
-            </div>
 
             <div class={this.state.showCancelModal ? "modal is-active animated fadeIn" : "modal" }>
               <div class="modal-background"></div>
@@ -130,8 +135,8 @@ class ClientAppointmentItem extends Component{
             <div class="message-header is-info">Notes</div>
             <div class="message-body is-info">{appointment.note}</div>
           </article>
-          <hr/>
         </div> : null }
+        <hr/>
 
         <div class="buttons is-centered">
           { !this.state.addNote ?
