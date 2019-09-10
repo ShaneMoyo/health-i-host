@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { updateAppointment } from './actions';
 import moment from 'moment'
+import DateTimePicker from 'react-datetime-picker';
 
 class ClientAppointmentItem extends Component{
 
   state = {
+    editDate: false,
     showCancelModal: false,
     addNote: false,
     newNote: '',
+    date: this.props.appointment.date
   }
 
   handleCancelSubmit = () => {
@@ -22,8 +25,15 @@ class ClientAppointmentItem extends Component{
     this.setState({ showCancelModal: !this.state.showCancelModal });
   }
 
+  editDate = () => {
+    this.setState({ editDate: !this.state.editDate });
+  }
   handleInputNote = () => {
     this.setState({ addNote: !this.state.addNote })
+  }
+  newDate = (date) => {
+    console.log('date: ', date);
+    this.setState({ date: moment(date) })
   }
 
   handleNewNote = value => {
@@ -40,8 +50,12 @@ class ClientAppointmentItem extends Component{
       console.log('here in the conditional ')
       update.status = 'cancelled';
     }
+
+    if(this.state.date !== update.date) {
+      update.date = this.state.date;
+    }
     return this.props.updateAppointment(update)
-      .then(()=> { this.setState({ addNote: false })})
+      .then(()=> { this.setState({ addNote: false, editDate: false })})
   }
 
   render(){
@@ -61,7 +75,15 @@ class ClientAppointmentItem extends Component{
             <div class="control">
               <div class="tags has-addons">
                 <span class="tag is-warning">Date</span>
-                <span class="tag is-info">{moment(appointment.date).format('MM/DD/YYYY hh:mm a')}</span>
+                {!this.state.editDate && <span onClick={() => this.editDate()}class="tag is-info">{moment(this.state.date).format('MM/DD/YYYY hh:mm a')}</span>}
+                {this.state.editDate && <span class="tag is-info">
+                  <DateTimePicker
+                    onChange={this.newDate}
+                    disableClock={true}
+                    disableCalendar={true}
+                    value={new Date(this.state.date)}
+                  />
+                </span>}
               </div>
             </div>
 
@@ -111,10 +133,12 @@ class ClientAppointmentItem extends Component{
           <hr/>
         </div> : null }
 
-        { !this.state.addNote ?
-        <div class="button is-info is-outlined" onClick={() => this.handleInputNote()}>{appointment.note ? 'Edit Note' : 'Add Note'}</div> :
-        <div class={ loading ?"button is-loading is-info is-outlined" : "button is-info is-outlined"} onClick={() => this.handleClientUpdate()}>Submit Note</div> }
-
+        <div class="buttons is-centered">
+          { !this.state.addNote ?
+          <div class="button is-info is-outlined" onClick={() => this.handleInputNote()}>{appointment.note ? 'Edit Note' : 'Add Note'}</div> :
+          <div class={ loading ?"button is-loading is-info is-outlined" : "button is-info is-outlined"} onClick={() => this.handleClientUpdate()}>Submit Note</div> }
+          <div class="button is-info is-outlined" onClick={() => this.handleClientUpdate()}>Save Changes</div>
+        </div>
       </div>
     </article>
     )

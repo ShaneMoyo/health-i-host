@@ -69,7 +69,7 @@ class AppointmentForm extends Component {
   }
 
   render() {
-    
+
     const typeOptions = [
       { value: 'massage', label: 'Massage Therapy' },
       { value: 'mineral', label: 'Mineral Consultation' },
