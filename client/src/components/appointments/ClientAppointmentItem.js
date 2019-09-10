@@ -142,7 +142,7 @@ class ClientAppointmentItem extends Component{
           { !this.state.addNote ?
           <div class="button is-info is-outlined" onClick={() => this.handleInputNote()}>{appointment.note ? 'Edit Note' : 'Add Note'}</div> :
           <div class={ loading ?"button is-loading is-info is-outlined" : "button is-info is-outlined"} onClick={() => this.handleInputNote()}>Cancel</div> }
-          <div class="button is-info is-outlined" onClick={() => this.handleClientUpdate()}>Save Changes</div>
+          <div class={ loading ?"button is-loading is-info is-outlined" : "button is-info is-outlined"} onClick={() => this.handleClientUpdate()}>Save Changes</div>
         </div>
       </div>
     </article>
