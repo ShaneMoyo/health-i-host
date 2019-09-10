@@ -27,7 +27,10 @@ class MyAppointments extends Component {
         <br/>
         <br/>
         <h3 class="title">My Appointments</h3>
-          {MyAppointments}
+        <div class="columns">
+          <div class="column is-one-third is-offset-one-third">{MyAppointments}</div>
+
+        </div>
         </div>
       </section>
     );
