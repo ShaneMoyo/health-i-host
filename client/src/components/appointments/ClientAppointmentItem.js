@@ -32,6 +32,7 @@ class ClientAppointmentItem extends Component{
     this.setState({ addNote: !this.state.addNote })
   }
   newDate = (date) => {
+    if (!date) return;
     console.log('date: ', date);
     this.setState({ date: moment(date) })
   }
@@ -117,7 +118,6 @@ class ClientAppointmentItem extends Component{
           <div class="message is-info">
             <div class="message-header is-info">
               Notes
-              <button onClick={() => this.handleInputNote()} class="delete" aria-label="delete"></button>
             </div>
             <div class="message-body is-info">
               <textarea class="textarea" placeholder={appointment.note ? JSON.stringify(appointment.note) :"Add note"} name="note" onChange={({ target }) => this.handleNewNote(target.value)}></textarea>
@@ -136,7 +136,7 @@ class ClientAppointmentItem extends Component{
         <div class="buttons is-centered">
           { !this.state.addNote ?
           <div class="button is-info is-outlined" onClick={() => this.handleInputNote()}>{appointment.note ? 'Edit Note' : 'Add Note'}</div> :
-          <div class={ loading ?"button is-loading is-info is-outlined" : "button is-info is-outlined"} onClick={() => this.handleClientUpdate()}>Submit Note</div> }
+          <div class={ loading ?"button is-loading is-info is-outlined" : "button is-info is-outlined"} onClick={() => this.handleInputNote()}>Cancel</div> }
           <div class="button is-info is-outlined" onClick={() => this.handleClientUpdate()}>Save Changes</div>
         </div>
       </div>
