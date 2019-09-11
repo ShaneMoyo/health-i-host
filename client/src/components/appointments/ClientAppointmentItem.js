@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { updateAppointment } from './actions';
+import { updateAppointment, deleteAppointment } from './actions';
 import moment from 'moment'
 import DateTimePicker from 'react-datetime-picker';
 
@@ -19,6 +19,10 @@ class ClientAppointmentItem extends Component{
     update.status = "cancelled";
     return this.props.updateAppointment(update)
       .then(()=> { this.setState({ showCancelModal: false })})
+  }
+
+  handleDeleteAppointment = () => {
+    return this.props.deleteAppointment(this.props.appointment._id)
   }
 
   toggleModal = () => {
@@ -61,7 +65,6 @@ class ClientAppointmentItem extends Component{
 
   render(){
     const { appointment, loading } = this.props;
-    //console.log('appointment: ', appointment);
     let status = appointment.status;
     appointment.cancelled ? status = 'Cancelled' : null;
     return(
@@ -113,7 +116,7 @@ class ClientAppointmentItem extends Component{
                   Are you sure you want to cancel? Once cancelled the appointment must be rescheduled if you change you mind.
                 </section>
                 <footer class="modal-card-foot">
-                  <button onClick={() => this.handleCancelSubmit()} class="button is-danger">Cancel</button>
+                  <button onClick={() => this.handleDeleteAppointment()} class="button is-danger">Cancel</button>
                 </footer>
               </div>
             </div>
@@ -153,5 +156,5 @@ class ClientAppointmentItem extends Component{
 export default connect(({ auth, loading }) => ({
   user: auth.user,
   loading,
-}), { updateAppointment }
+}), { updateAppointment, deleteAppointment }
 )(ClientAppointmentItem);

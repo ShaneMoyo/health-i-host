@@ -13,7 +13,8 @@ class AdminAppointmentItem extends Component{
   }
 
   handleDeleteAppointment = () => {
-    this.props.deleteAppointment(this.props.appointment._id);
+    return this.props.deleteAppointment(this.props.appointment._id)
+      .then(() => {})
   }
 
   handleInputNote = () => {
@@ -50,7 +51,7 @@ class AdminAppointmentItem extends Component{
     return this.props.updateAppointment(update)
     .then(()=> { this.setState({ updatingStatus: false })})
   }
-  
+
   render(){
     const { appointment, loading } = this.props;
     console.log('statussss in render', appointment.fulfilled)
@@ -60,7 +61,7 @@ class AdminAppointmentItem extends Component{
     return(
       <article class="animated slideInUp message is-info">
         <div class="message-header">
-          Service type: {appointment.service} 
+          Service type: {appointment.service}
           <button onClick={() => this.handleDeleteAppointment()} class="delete" aria-label="delete"></button>
         </div>
         <div class="message-body">
@@ -80,9 +81,9 @@ class AdminAppointmentItem extends Component{
             </div>
 
             <br/>
-            
+
             <div class="control">
-              
+
                 { this.state.updatingStatus ?
                 <div>
                 <span class="tag is-warning"onClick={() => this.handleUpdateStatus()}>Update</span>
@@ -98,11 +99,11 @@ class AdminAppointmentItem extends Component{
                 <span class={!appointment.fulfilled ? "tag is-success" : "tag is-danger"}>{status}</span>
                 </div>
                 }
-              
+
             </div>
 
           </div>
-          { this.state.inputNote ? 
+          { this.state.inputNote ?
           <div class="message is-info">
             <div class="message-header is-info">
               Notes
@@ -113,16 +114,16 @@ class AdminAppointmentItem extends Component{
             </div>
           </div> : null }
 
-        { appointment.notes && !this.state.inputNote ? 
+        { appointment.notes && !this.state.inputNote ?
         <div>
           <article class="message is-info">
             <div class="message-header is-info">Notes</div>
             <div class="message-body is-info">{appointment.notes}</div>
-          </article> 
+          </article>
           <hr/>
         </div> : null }
 
-        { !this.state.inputNote ? 
+        { !this.state.inputNote ?
         <div class="button is-info is-outlined" onClick={() => this.handleInputNote()}>{appointment.notes ? 'Edit Note' : 'Add Note'}</div> :
         <div class={ loading ?"button is-loading is-info is-outlined" : "button is-info is-outlined"} onClick={() => this.handleClientUpdate()}>Submit Note</div> }
 

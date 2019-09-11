@@ -30,7 +30,7 @@ module.exports = router
       .catch(next);
   })
 
-  .delete('/:id', ensureRole(['admin']), (req, res, next) => {
+  .delete('/me/:id', (req, res, next) => {
     return Appointment.findOneAndRemove({'_id' : req.params.id, user: req.user.id})
         .then(result => {
           console.log('removing!', result);
@@ -42,6 +42,30 @@ module.exports = router
           res.json({ removed: isRemoved })
         })
         .catch(next);
+  })
+
+  .delete('/me/:id', (req, res, next) => {
+    const { id }= req.params;
+    const { id: tokenId } = req.user;
+    let { type, date, note, user: userId, status } = req.body;
+    console.log('here in the thing', userId)
+    userId = userId._id ? userId._id : userId;
+    const isMe = tokenId === userId
+    if (!id || !isMe ) {
+      console.log('here', tokenId, 'userID: ', userId._id )
+      const error = !isMe ?
+        { code: 401, error: 'unauthorized'} :
+        { code: 404, error: `id ${id} does not exist`}
+        console.log('here', error )
+        next(err);
+    }
+    const update = { type, date, note, status };
+    if (status !== 'cancelled') {
+        delete update.status;
+    }
+    Appointment.findByIdAndUpdate({ _id: id }, update, { new: true , runValidators: true })
+        .lean()
+        .then(updatedAppointment => res.json(updatedAppointment));
   })
 
   .put('/me/:id', (req, res, next) => {

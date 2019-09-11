@@ -46,10 +46,21 @@ export function updateAppointment(update) {
 }
 
 export function deleteAppointment(id) {
+  console.log('dispatching delete')
+  // return dispatch => {
+  //   dispatch({
+  //     type: actions.DELETE_APPOINTMENT,
+  //     payload: appointmentApi.remove(id).then(() => id)
+  //   });
+  // };
   return dispatch => {
+    dispatch({ type: actions.LOADING });
     dispatch({
       type: actions.DELETE_APPOINTMENT,
       payload: appointmentApi.remove(id).then(() => id)
-    });
+    })
+    .then(() => dispatch({ type: actions.DONE_LOADING}))
+    .catch(error => dispatch({ type: actions.ERROR , payload: error }));
   };
+
 }

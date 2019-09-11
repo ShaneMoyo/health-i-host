@@ -13,7 +13,7 @@ class MyAppointments extends Component {
   render(){
     const { appointments, loading, user} = this.props;
     const MyAppointments = appointments.map(appointment => {
-      if (appointment.status === 'cancelled') return;
+      
       const isAdmin = user.roles[0] === 'admin';
       const appointmentItem = isAdmin ?
       <AdminAppointmentItem appointment={ appointment }/> :

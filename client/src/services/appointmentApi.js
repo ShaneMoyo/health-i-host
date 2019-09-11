@@ -19,6 +19,6 @@ export default {
   },
 
   remove(id) {
-    return request.delete(`/appointments/${id}`);
+    return request.delete(`/appointments/me/${id}`);
   }
 };
