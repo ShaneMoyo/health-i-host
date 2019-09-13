@@ -54,13 +54,12 @@ export function deleteAppointment(id) {
   //   });
   // };
   return dispatch => {
-    dispatch({ type: actions.LOADING });
+
     dispatch({
       type: actions.DELETE_APPOINTMENT,
       payload: appointmentApi.remove(id).then(() => id)
     })
-    .then(() => dispatch({ type: actions.DONE_LOADING}))
-    .catch(error => dispatch({ type: actions.ERROR , payload: error }));
+    
   };
 
 }

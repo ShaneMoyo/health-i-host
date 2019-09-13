@@ -8,26 +8,15 @@ class ClientAppointmentItem extends Component{
 
   state = {
     editDate: false,
-    showCancelModal: false,
     addNote: false,
     newNote: '',
     date: this.props.appointment.date
-  }
-
-  handleCancelSubmit = () => {
-    const update = { ...this.props.appointment }
-    update.status = "cancelled";
-    return this.props.updateAppointment(update)
-      .then(()=> { this.setState({ showCancelModal: false })})
   }
 
   handleDeleteAppointment = () => {
     return this.props.deleteAppointment(this.props.appointment._id)
   }
 
-  toggleModal = () => {
-    this.setState({ showCancelModal: !this.state.showCancelModal });
-  }
 
   editDate = () => {
     this.setState({ editDate: !this.state.editDate });
@@ -64,7 +53,7 @@ class ClientAppointmentItem extends Component{
   }
 
   render(){
-    const { appointment, loading } = this.props;
+    const { appointment, loading, toggleModal } = this.props;
     let status = appointment.status;
     appointment.cancelled ? status = 'Cancelled' : null;
     return(
@@ -74,7 +63,7 @@ class ClientAppointmentItem extends Component{
             <span class="tag is-info">{status}</span>
 
 
-          <button onClick={() => this.toggleModal()} class="delete" aria-label="delete"></button>
+          <button onClick={() => toggleModal(appointment._id)} class="delete" aria-label="delete"></button>
         </div>
         <div class="message-body">
           <div class="field is-grouped is-grouped-multiline">
@@ -105,21 +94,7 @@ class ClientAppointmentItem extends Component{
             <br/>
 
 
-            <div class={this.state.showCancelModal ? "modal is-active animated fadeIn" : "modal" }>
-              <div class="modal-background"></div>
-              <div class="modal-card">
-                <header class="modal-card-head">
-                  <p class="modal-card-title">Cancel Appointment</p>
-                  <button  onClick={() => this.toggleModal()}class="delete" aria-label="close"></button>
-                </header>
-                <section class="modal-card-body">
-                  Are you sure you want to cancel? Once cancelled the appointment must be rescheduled if you change you mind.
-                </section>
-                <footer class="modal-card-foot">
-                  <button onClick={() => this.handleDeleteAppointment()} class="button is-danger">Cancel</button>
-                </footer>
-              </div>
-            </div>
+
 
           </div>
           { this.state.addNote ?
