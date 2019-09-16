@@ -27,20 +27,20 @@ class Navigation extends Component {
     const { user } = this.props;
     const { isActive } = this.state;
     return (
-      <div class="hero-head">
-        <nav class="navbar">
-          <div class="container is-fluid">
-            <div class="navbar-brand">
+      <div className="hero-head">
+        <nav className="navbar">
+          <div className="container is-fluid">
+            <div className="navbar-brand">
 
-              <a class="navbar-item">
-                <NavBarLink class=" home-button" exact to="/"><img height="100%" src={logo} /></NavBarLink>
-              </a>
+              <div className="navbar-item">
+                <NavBarLink className=" home-button" exact to="/"><img height="100%" src={logo} /></NavBarLink>
+              </div>
 
-              {user ? <a class="navbar-item is-transparent">
+              {user ? <div className="navbar-item is-transparent">
                 {`Hello, ${user.firstName}`}
-              </a> : null}
+              </div> : null}
 
-              <span class={isActive ? 'navbar-burger burger is-active' : 'navbar-burger burger'} data-target="navbarMenu" onClick={() => this.onClickNav()}>
+              <span className={isActive ? 'navbar-burger burger is-active' : 'navbar-burger burger'} data-target="navbarMenu" onClick={() => this.onClickNav()}>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -48,36 +48,36 @@ class Navigation extends Component {
 
             </div>
 
-            <div class={isActive ? 'animated fadeIn navbar-menu is-active is-success' : 'animated fadeIn navbar-menu'}>
-              <div class="navbar-end">
+            <div className={isActive ? 'animated fadeIn navbar-menu is-active is-success' : 'animated fadeIn navbar-menu'}>
+              <div className="navbar-end">
 
-                {!user && <a class="navbar-item is-transparent">
-                  <NavBarLink exact to="/auth/signin" onClick={() => this.onClickNav()}><span  class="tag is-warning">Log in</span></NavBarLink>
-                </a>}
+                {!user && <div className="navbar-item is-transparent">
+                  <NavBarLink exact to="/auth/signin" onClick={() => this.onClickNav()}><span  className="tag is-warning">Log in</span></NavBarLink>
+                </div>}
 
-                <a class="navbar-item is-transparent">
-                  <NavBarLink exact to="/massage" onClick={() => this.onClickNav()}><span class="tag is-warning">Massage</span></NavBarLink>
-                </a>
+                <div className="navbar-item is-transparent">
+                  <NavBarLink exact to="/massage" onClick={() => this.onClickNav()}><span className="tag is-warning">Massage</span></NavBarLink>
+                </div>
 
-                <a class="navbar-item is-transparent">
-                  <NavBarLink exact to="/minerals" onClick={() => this.onClickNav()}><span class="tag is-warning">Minerals</span></NavBarLink>
-                </a>
+                <div className="navbar-item is-transparent">
+                  <NavBarLink exact to="/minerals" onClick={() => this.onClickNav()}><span className="tag is-warning">Minerals</span></NavBarLink>
+                </div>
 
-                <a class="navbar-item is-transparent">
-                  <NavBarLink exact to="/Movement" onClick={() => this.onClickNav()}><span class="tag is-warning">Movement</span></NavBarLink>
-                </a>
+                <div className="navbar-item is-transparent">
+                  <NavBarLink exact to="/Movement" onClick={() => this.onClickNav()}><span className="tag is-warning">Movement</span></NavBarLink>
+                </div>
 
-                <a class="navbar-item is-transparent">
-                  <NavBarLink exact to="/appointment" onClick={() => this.onClickNav()}><span class="tag is-warning">Book Appointment</span></NavBarLink>
-                </a>
+                <div className="navbar-item is-transparent">
+                  <NavBarLink exact to="/appointment" onClick={() => this.onClickNav()}><span className="tag is-warning">Book Appointment</span></NavBarLink>
+                </div>
 
-                { user && <a class="navbar-item" onClick={() => this.onClickNav()}>
-                  <NavBarLink exact to="/appointment/me"><span class="tag is-warning">My Appointments</span></NavBarLink>
-                </a> }
+                { user && <div className="navbar-item" onClick={() => this.onClickNav()}>
+                  <NavBarLink exact to="/appointment/me"><span className="tag is-warning">My Appointments</span></NavBarLink>
+                </div> }
 
-                { user && <a class="navbar-item" onClick={() => this.handleSignOut()}>
-                  <NavBarLink exact to="/"><span class="tag is-warning">Log out</span></NavBarLink>
-                </a> }
+                { user && <div className="navbar-item" onClick={() => this.handleSignOut()}>
+                  <NavBarLink exact to="/"><span className="tag is-warning">Log out</span></NavBarLink>
+                </div> }
               </div>
             </div>
 

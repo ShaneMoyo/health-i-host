@@ -20,7 +20,7 @@ class App extends Component {
       <Router>
         <div className="App">
           <head>
-            <meta charset="utf-8"/>
+            <meta charSet="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"/>
             <link rel="stylesheet" href="https://cdnjs.com/libraries/kissui.scrollanim"/>

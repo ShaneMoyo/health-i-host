@@ -6,30 +6,22 @@ import DayPicker from 'react-day-picker';
 import TimePicker from 'rc-time-picker';
 import { bookAppointment } from './actions';
 import { NavLink } from 'react-router-dom';
-
-
 import 'react-day-picker/lib/style.css';
 import 'rc-time-picker/assets/index.css';
 
-const NavBarLink = props => <NavLink {...props}
-className="nav-link"
-activeClassName="active"
-/>;
+const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
 class AppointmentForm extends Component {
   state = {
     date: moment(),
     type: 'massage',
     duration: 0.5,
-    appoitmentBooked: false
+    appoitmentBooked: false,
+    status: 'pending'
   }
 
-  onTypeChange = type => {
-    this.setState({ type: type.value });
-  }
+  onTypeChange = type => this.setState({ type: type.value });
 
-  onDurationChange = duration => {
-    this.setState({ durration: duration.value });
-  }
+  onDurationChange = duration => this.setState({ durration: duration.value });
 
   onDateChange = date => {
     if (!date) return;
@@ -52,20 +44,8 @@ class AppointmentForm extends Component {
   }
 
   handleSubmit = () => {
-    const { date, type, duration } = this.state;
-    const newAppointment = {
-      date,
-      type,
-      duration,
-      status: 'pending'
-    }
-    console.log('appointment', this.state);
-    return this.props.bookAppointment(newAppointment)
-      .then(() => {
-        console.log('!this.state.appoitmentBooked: ', !this.state.appoitmentBooked)
-        this.setState({ appoitmentBooked: !this.state.appoitmentBooked })
-      })
-
+    const { appoitmentBooked, ...newAppointment } = this.state;
+    return this.props.bookAppointment(newAppointment).then(() => this.setState({ appoitmentBooked: !appoitmentBooked }))
   }
 
   render() {
@@ -81,55 +61,50 @@ class AppointmentForm extends Component {
       { value: 1.5, label: '1.5 Hours ' },
       { value: 2, label: '2 Hours' }
     ];
+    const { appoitmentBooked, date } = this.state;
 
     return (
       <section class="hero is-warning is-fullheight">
         <div class="column is-waring is-6 is-offset-3">
           <div class="box animated fadeIn is-warning" >
-
-
-              { this.state.appoitmentBooked ?
+              { appoitmentBooked ?
                 <div>
                   <div class="animated fadeIn title is-6">Appointment Booked Succesfully</div>
                   <br/>
-                  <div class="animated fadeIn button is-info is-large"><NavBarLink exact to="/appointment/me">Proceed to My Appointments</NavBarLink></div>
+                  <div class="animated fadeIn button is-info"><NavBarLink exact to="/appointment/me">Proceed to My Appointments</NavBarLink></div>
                 </div> :
                 <div>
                   <div class="animated fadeIn title is-4">Schedule an Appointment</div>
                   <div class="field">
-                  <Select defaultValue="select a service" options={typeOptions} onChange={this.onTypeChange}/>
-                  </div>
-                  <hr/>
-
-                  <div class="field">
-                  <DayPicker onDayClick={this.onDateChange}/>
-                  </div>
-                  <div class="field">
-                  <TimePicker
-                  showSecond={false}
-                  defaultValue={this.state.date}
-                  className="xxx"
-                  onChange={this.onTimeChange}
-                  format='h:mm a'
-                  use12Hours
-                  inputReadOnly
-                  />
+                    <Select defaultValue="select a service" options={typeOptions} onChange={this.onTypeChange}/>
                   </div>
                   <hr/>
                   <div class="field">
-                  <Select defaultValue="select a service" options={durationOptions} onChange={this.onTypeChange}/>
+                    <DayPicker onDayClick={this.onDateChange}/>
+                  </div>
+                  <div class="field">
+                    <TimePicker
+                    showSecond={false}
+                    defaultValue={date}
+                    className="xxx"
+                    onChange={this.onTimeChange}
+                    format='h:mm a'
+                    use12Hours
+                    inputReadOnly
+                    />
                   </div>
                   <hr/>
                   <div class="field">
-                  <label class="label"></label>
-                  <button class="button is-medium is-info" onClick={this.handleSubmit}>Book Appointment</button>
+                    <Select defaultValue="select a service" options={durationOptions} onChange={this.onTypeChange}/>
+                  </div>
+                  <hr/>
+                  <div class="field">
+                    <label class="label"></label>
+                    <button class="button is-medium is-info" onClick={this.handleSubmit}>Book Appointment</button>
                   </div>
                 </div>
               }
-
-
               <br/>
-
             <br/>
           </div>
         </div>
@@ -138,8 +113,5 @@ class AppointmentForm extends Component {
   }
 }
 
-export default connect(({ auth, loading }) => ({
-  user: auth.user,
-  loading
-}), { bookAppointment }
+export default connect(({ auth, loading }) => ({ loading }), { bookAppointment }
 )(AppointmentForm);
