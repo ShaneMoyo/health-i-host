@@ -76,7 +76,7 @@ class AppointmentForm extends Component {
                 <div>
                   <div class="animated fadeIn title is-4">Schedule an Appointment</div>
                   <div class="field">
-                    <Select defaultValue="select a service" options={typeOptions} onChange={this.onTypeChange}/>
+                    <Select defaultValue={typeOptions[0]} options={typeOptions} onChange={this.onTypeChange}/>
                   </div>
                   <hr/>
                   <div class="field">
@@ -95,7 +95,7 @@ class AppointmentForm extends Component {
                   </div>
                   <hr/>
                   <div class="field">
-                    <Select defaultValue="select a service" options={durationOptions} onChange={this.onTypeChange}/>
+                    <Select defaultValue={durationOptions[1]} options={durationOptions} onChange={this.onTypeChange}/>
                   </div>
                   <hr/>
                   <div class="field">
