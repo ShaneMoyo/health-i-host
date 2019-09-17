@@ -18,25 +18,32 @@ class MyAppointments extends Component {
   }
 
   handleDeleteAppointment = () => {
-    this.setState({ showCancelModal: !this.state.showCancelModal});
     return this.props.deleteAppointment(this.state.deleteId)
+      .then(() => this.setState({ showCancelModal: false}))
   }
 
   render(){
     const { appointments, loading } = this.props;
     const myAppointments = appointments.map(appointment => <ClientAppointmentItem key={appointment._id} appointment={ appointment } toggleModal={ this.toggleModal }/>)
     return(
-      <section class="hero is-light has-text-centered">
-        <br/>
-        <br/>
-        <br/>
-        <CancelModal toggleModal={this.toggleModal}
-          showCancelModal={this.state.showCancelModal}
-          handleDeleteAppointment={this.handleDeleteAppointment}
-        />
-        <h3 class="title animated fadeIn">My Appointments</h3>
-        <div class="columns">
-          <div class="column is-one-third is-offset-one-third">{myAppointments}</div>
+      <section class="hero is-warning">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <section class="hero is-warning is-fullheight">
+              <div class="column is-waring is-6 is-offset-3">
+                <div class="box animated fadeIn is-warning" >
+                  <CancelModal toggleModal={this.toggleModal}
+                    showCancelModal={this.state.showCancelModal}
+                    handleDeleteAppointment={this.handleDeleteAppointment}
+                  />
+                  <h3 class="title is-3 animated fadeIn">Appointments</h3>
+                  <hr/>
+                  <br/>
+                  {myAppointments}
+                </div>
+              </div>
+            </section>
+          </div>
         </div>
       </section>
     );
