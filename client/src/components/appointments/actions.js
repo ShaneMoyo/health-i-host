@@ -13,26 +13,12 @@ export function bookAppointment(appointment){
 
 export function loadMyAppointments(){
   return dispatch => {
-    dispatch({ type: actions.LOADING });
-    dispatch({
-      type: actions.LOAD_APPOINTMENTS,
-      payload: appointmentApi.getMy()
-    })
-    .then(() => dispatch({ type: actions.DONE_LOADING}))
-    .catch(error => dispatch({ type: actions.ERROR , payload: error }));
-  };
-}
-
-export function loadAllAppointments(){
-  return dispatch => {
-    dispatch({ type: actions.LOADING });
-    dispatch({
-      type: actions.LOAD_APPOINTMENTS,
-      payload: appointmentApi.get()
-    })
-    .then(() => dispatch({ type: actions.DONE_LOADING}))
-    .catch(error => dispatch({ type: actions.ERROR , payload: error }));
-  };
+    dispatch({ type: actions.LOADING })
+    return appointmentApi.getMy()
+      .then( appointments => dispatch({type: actions.LOAD_APPOINTMENTS, payload: appointments}))
+      .then(() => dispatch({ type: actions.DONE_LOADING}))
+      .catch(error => dispatch({ type: actions.ERROR , payload: error }));
+  }
 }
 
 export function updateAppointment(update) {
@@ -46,20 +32,11 @@ export function updateAppointment(update) {
 }
 
 export function deleteAppointment(id) {
-  console.log('dispatching delete')
-  // return dispatch => {
-  //   dispatch({
-  //     type: actions.DELETE_APPOINTMENT,
-  //     payload: appointmentApi.remove(id).then(() => id)
-  //   });
-  // };
   return dispatch => {
-
-    dispatch({
-      type: actions.DELETE_APPOINTMENT,
-      payload: appointmentApi.remove(id).then(() => id)
-    })
-    
-  };
-
+    dispatch({ type: actions.LOADING })
+    return appointmentApi.remove(id).then(() => id)
+      .then( id => dispatch({type: actions.DELETE_APPOINTMENT, payload: id}))
+      .then(() => dispatch({ type: actions.DONE_LOADING}))
+      .catch(error => dispatch({ type: actions.ERROR , payload: error }));
+  }
 }

@@ -12,12 +12,12 @@ const logger = store => next => action => {
 
 const store = createStore(
   rootReducer,
-  {}, 
+  {},
   composeEnhancers(
     applyMiddleware(
       logger,
-      thunk,
-      promiseMiddleware
+      thunk
+
     )
   )
 );
