@@ -46,7 +46,7 @@ function ClientAppointmentItem (props){
                   <DateTimePicker
                     clearIcon={null}
                     calendarIcon={null}
-                    onChange={this.newDate}
+                    onChange={setDate}
                     disableClock={true}
                     disableCalendar={true}
                     value={new Date(date)}
@@ -71,7 +71,7 @@ function ClientAppointmentItem (props){
             </div>
           </div> }
 
-      { !addNote ?
+      { appointment.note && !addNote ?
         <div>
           <article class="message is-info">
             <div class="message-header is-info">Notes</div>
@@ -81,7 +81,7 @@ function ClientAppointmentItem (props){
       <hr/>
 
       <div class="buttons is-centered">
-        { !addNote ?
+        { appointment.note && !addNote ?
           <div class="button is-info is-outlined" onClick={() => setaAddNote(!addNote)}>{ appointment.note ? 'Edit Note' : 'Add Note' }</div> :
           <div class={ loading ? "button is-loading is-info is-outlined" : "button is-info is-outlined" } onClick={() => setaAddNote(!addNote)}>Cancel</div> }
           <div class={ loading ? "button is-loading is-info is-outlined" : "button is-info is-outlined" } onClick={() => handleClientUpdate()}>Save Changes</div>

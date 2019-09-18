@@ -1,54 +1,45 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { loadMyAppointments, deleteAppointment } from './actions';
 import ClientAppointmentItem from './ClientAppointmentItem';
 import CancelModal from '../utils/CancelModal.js';
 
-class MyAppointments extends Component {
-  state = {
-    showCancelModal: false,
-  }
+function MyAppointments (props) {
 
-  componentDidMount() {
-    return this.props.loadMyAppointments()
-  }
+  async function loadAppointments() { await loadMyAppointments() }
 
-  toggleModal = (id) => {
-    this.setState({ showCancelModal: !this.state.showCancelModal, deleteId: id });
-  }
+  useEffect(() => { loadAppointments() }, []);
 
-  handleDeleteAppointment = () => {
-    return this.props.deleteAppointment(this.state.deleteId)
-      .then(() => this.setState({ showCancelModal: false}))
-  }
+  const { appointments, loading, deleteAppointment, loadMyAppointments } = props;
+  const [showModal, setShowModal] = useState(false);
+  const [deleteId, setDeleteId] = useState(null);
+  const handleDeleteAppointment = () => deleteAppointment(deleteId).then(() => setShowModal(false))
+  const myAppointments = appointments.map(appointment => <ClientAppointmentItem key={appointment._id} appointment={ appointment } toggleModal={() => setShowModal(!showModal) }/>)
 
-  render(){
-    const { appointments, loading } = this.props;
-    const myAppointments = appointments.map(appointment => <ClientAppointmentItem key={appointment._id} appointment={ appointment } toggleModal={ this.toggleModal }/>)
-    return(
-      <section class="hero is-warning">
-        <div class="hero-body">
-          <div class="container has-text-centered">
-            <section class="hero is-warning is-fullheight">
-              <div class="column is-waring is-6 is-offset-3">
-                <div class="box animated fadeIn is-warning" >
-                  <CancelModal toggleModal={this.toggleModal}
-                    showCancelModal={this.state.showCancelModal}
-                    handleDeleteAppointment={this.handleDeleteAppointment}
-                  />
-                  <h3 class="title is-3 animated fadeIn">Appointments</h3>
-                  <hr/>
-                  <br/>
-                  {myAppointments}
-                </div>
+  return(
+    <section class="hero is-warning">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <section class="hero is-warning is-fullheight">
+            <div class="column is-waring is-6 is-offset-3">
+              <div class="box animated fadeIn is-warning" >
+                <CancelModal toggleModal={setShowModal}
+                  showCancelModal={showModal}
+                  handleDeleteAppointment={handleDeleteAppointment}
+                />
+                <h3 class="title is-3 animated fadeIn">Appointments</h3>
+                <hr/>
+                <br/>
+                {myAppointments}
               </div>
-            </section>
-          </div>
+            </div>
+          </section>
         </div>
-      </section>
-    );
+      </div>
+    </section>
+  );
   }
-}
+
 
 export default connect(({ auth, loading, appointments }) => ({
   loading,
