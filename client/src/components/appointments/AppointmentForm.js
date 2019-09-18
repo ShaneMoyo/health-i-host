@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import moment from 'moment'
 import Select from 'react-select'
@@ -10,45 +10,37 @@ import 'react-day-picker/lib/style.css';
 import 'rc-time-picker/assets/index.css';
 
 const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
-class AppointmentForm extends Component {
-  state = {
-    date: moment(),
-    type: 'massage',
-    duration: 0.5,
-    appoitmentBooked: false,
-    status: 'pending'
-  }
+function AppointmentForm(props) {
 
-  onTypeChange = type => this.setState({ type: type.value });
+  const [date, setDate] = useState(moment());
+  const [type, setType] = useState('massage')
+  const [duration, setDuration] = useState(0.5);
+  const [status, setStatus] = useState('pending');
+  const [appoitmentBooked, setAppoitmentBooked] = useState(false);
 
-  onDurationChange = duration => this.setState({ durration: duration.value });
 
-  onDateChange = date => {
-    if (!date) return;
-
-    const { date: currentDate } = this.state;
-    const newDate = moment(date);
+  const onDateChange = newDate => {
+    if (!newDate) return;
+    newDate = moment(newDate);
     const day = newDate.date();
     const month = newDate.month();
-    this.setState({ date: currentDate.date(day).month(month) })
+    setDate(date.date(day).month(month));
   }
 
-  onTimeChange = time => {
+  const onTimeChange = time => {
     if (!time) return;
+    time = moment(time);
+    const day = time.hour();
+    const month = time.minute();
+    setDate(date.hour(day).minute(month));
 
-    const { date: currentDate } = this.state;
-    const newTime = moment(time);
-    const day = newTime.hour();
-    const month = newTime.minute();
-    this.setState({ date: currentDate.hour(day).minute(month) })
   }
 
-  handleSubmit = () => {
-    const { appoitmentBooked, ...newAppointment } = this.state;
-    return this.props.bookAppointment(newAppointment).then(() => this.setState({ appoitmentBooked: !appoitmentBooked }))
+  const handleSubmit = () => {
+    return props.bookAppointment({ date, type, status, duration }).then(() => setAppoitmentBooked(!appoitmentBooked))
   }
 
-  render() {
+
 
     const typeOptions = [
       { value: 'massage', label: 'Massage Therapy' },
@@ -61,8 +53,6 @@ class AppointmentForm extends Component {
       { value: 1.5, label: '1.5 Hours ' },
       { value: 2, label: '2 Hours' }
     ];
-    const { appoitmentBooked, date } = this.state;
-
     return (
       <section class="hero is-warning is-fullheight">
         <div class="column is-waring is-6 is-offset-3">
@@ -76,16 +66,16 @@ class AppointmentForm extends Component {
                 <div>
 
                   <div class="field">
-                    <Select defaultValue={typeOptions[0]} options={typeOptions} onChange={this.onTypeChange}/>
+                    <Select defaultValue={typeOptions[0]} options={typeOptions} onChange={({ value }) => setType(value)}/>
                   </div>
 
                   <div class="field">
-                    <Select defaultValue={durationOptions[1]} options={durationOptions} onChange={this.onTypeChange}/>
+                    <Select defaultValue={durationOptions[1]} options={durationOptions} onChange={({ value }) => setDuration(value)}/>
                   </div>
 
                   <div class="field">
                     <div calss="container">
-                      <DayPicker onDayClick={this.onDateChange}/>
+                      <DayPicker onDayClick={onDateChange}/>
                     </div>
                   </div>
                   <div class="field">
@@ -93,7 +83,7 @@ class AppointmentForm extends Component {
                     showSecond={false}
                     defaultValue={date}
                     className="xxx"
-                    onChange={this.onTimeChange}
+                    onChange={onTimeChange}
                     format='h:mm a'
                     use12Hours
                     inputReadOnly
@@ -104,16 +94,16 @@ class AppointmentForm extends Component {
                   <hr/>
                   <div class="field">
                     <label class="label"></label>
-                    <button class="button is-medium is-info" onClick={this.handleSubmit}>Book Appointment</button>
+                    <button class="button is-medium is-info" onClick={handleSubmit}>Book Appointment</button>
                   </div>
                 </div>
               }
-            
+
           </div>
         </div>
       </section>
     );
-  }
+
 }
 
 export default connect(({ auth, loading }) => ({ loading }), { bookAppointment }
