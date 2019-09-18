@@ -31,7 +31,7 @@ function ClientAppointmentItem (props){
         <div class="control">
           <div class="tags has-addons">
             <span class="tag is-warning">Service type</span>
-            <span class="tag is-success">{appointment.type}</span>
+            <span class="tag is-info">{appointment.type}</span>
           </div>
         </div>
           <div class="control">
