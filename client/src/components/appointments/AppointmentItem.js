@@ -46,11 +46,11 @@ function AppointmentItem (props){
                 <div class="tags has-addons">
                   <span class="tag is-warning">Date</span>
                   { !editDate &&
-                    <span onClick={() => setEditDate(!editDate)}class="tag is-info">
+                    <span onClick={() => setEditDate(!editDate)}class="tag is-info animated fadeIn">
                       {moment(date).format('MM/DD/YYYY hh:mm a')}
                     </span> }
                   { editDate &&
-                    <span class="tag is-info">
+                    <span class="tag is-info ">
                       <DateTimePicker
                         clearIcon={null}
                         calendarIcon={null}
@@ -71,7 +71,7 @@ function AppointmentItem (props){
                 <div class="message-header is-info">
                   Notes
                 </div>
-                <div class="message-body is-info">
+                <div class="animated fadeIn message-body is-info">
                   <textarea
                     class="textarea"
                     placeholder={initialNote ? JSON.stringify(initialNote) :"Add note"}
@@ -91,9 +91,9 @@ function AppointmentItem (props){
 
           <div class="buttons is-centered">
             { showNotes ?
-              <div class="button is-info is-outlined" onClick={() => setaAddNote(!addNote)}>{ initialNote ? 'Edit Note' : 'Add Note' }</div> :
-              <div class={ loading ? "button is-loading is-info is-outlined" : "button is-info is-outlined" } onClick={() => setaAddNote(!addNote)}>Cancel</div> }
-              <div class={ loading ? "button is-loading is-info is-outlined" : "button is-info is-outlined" } onClick={() => handleClientUpdate()}>Save Changes</div>
+              <div class="button is-small is-info is-outlined" onClick={() => setaAddNote(!addNote)}>{ initialNote ? 'Edit Note' : 'Add Note' }</div> :
+              <div class={ loading ? "button is-loading is-info is-outlined" : "button is-small is-info is-outlined" } onClick={() => setaAddNote(!addNote)}>Cancel</div> }
+              <div class={ loading ? "button is-loading is-info is-outlined" : "button is-small is-info is-outlined" } onClick={() => handleClientUpdate()}>Save Changes</div>
           </div>
         </div>
       </div>

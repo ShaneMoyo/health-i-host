@@ -74,13 +74,19 @@ class AppointmentForm extends Component {
                   <div class="animated fadeIn button is-info"><NavBarLink exact to="/appointment/me">Proceed to My Appointments</NavBarLink></div>
                 </div> :
                 <div>
-                  <div class="animated fadeIn title is-4">Schedule an Appointment</div>
+
                   <div class="field">
                     <Select defaultValue={typeOptions[0]} options={typeOptions} onChange={this.onTypeChange}/>
                   </div>
-                  <hr/>
+
                   <div class="field">
-                    <DayPicker onDayClick={this.onDateChange}/>
+                    <Select defaultValue={durationOptions[1]} options={durationOptions} onChange={this.onTypeChange}/>
+                  </div>
+
+                  <div class="field">
+                    <div calss="container">
+                      <DayPicker onDayClick={this.onDateChange}/>
+                    </div>
                   </div>
                   <div class="field">
                     <TimePicker
@@ -93,10 +99,8 @@ class AppointmentForm extends Component {
                     inputReadOnly
                     />
                   </div>
-                  <hr/>
-                  <div class="field">
-                    <Select defaultValue={durationOptions[1]} options={durationOptions} onChange={this.onTypeChange}/>
-                  </div>
+
+
                   <hr/>
                   <div class="field">
                     <label class="label"></label>
@@ -104,8 +108,7 @@ class AppointmentForm extends Component {
                   </div>
                 </div>
               }
-              <br/>
-            <br/>
+            
           </div>
         </div>
       </section>
