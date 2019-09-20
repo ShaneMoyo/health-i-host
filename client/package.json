@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@mdi/js": "^4.4.95",
+    "@mdi/react": "^1.2.1",
     "animate.css": "^3.7.2",
     "moment": "^2.24.0",
     "rc-time-picker": "^3.7.2",
@@ -32,7 +34,6 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/helper-remap-async-to-generator": "^7.1.0",

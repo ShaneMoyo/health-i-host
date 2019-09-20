@@ -5,6 +5,8 @@ import AppointmentItem from './AppointmentItem';
 import CancelModal from '../utils/CancelModal.js';
 import moment from 'moment'
 import Fade from 'react-reveal/Fade';
+import Icon from '@mdi/react'
+import {  mdiDotsHorizontal } from '@mdi/js'
 
 function MyAppointments (props) {
 
@@ -29,13 +31,25 @@ function MyAppointments (props) {
       mineral: 'warning'
     }
     const color = colorMap[appointment.type];
-    const className = `tile is-child notification is-${color}`
+    const className = `tile is-child notification has-text-white is-${color}`
 
     const neww = <li>
                   <Fade>
                     <div>
+
                     <div class="tile is-parent is-vertical">
                       <article class={className}>
+                        <span class="icon has-text-info is-pulled-right">
+                          <i class="fas fa-info-circle">
+                          <Icon path={mdiDotsHorizontal}
+                            title="User Profile"
+                            size={1}
+                            horizontal
+                            vertical
+                            color="white"
+                            />
+                          </i>
+                        </span>
                         <p class="title">{capatilizedType}</p>
                         <p class="subtitle">{moment(appointment.date).format('MM/DD/YYYY hh:mm a')}</p>
                       </article>
