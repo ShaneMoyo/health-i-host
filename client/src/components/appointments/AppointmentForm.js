@@ -54,54 +54,59 @@ function AppointmentForm(props) {
       { value: 2, label: '2 Hours' }
     ];
     return (
-      <section class="hero is-warning is-fullheight">
-        <div class="column is-waring is-6 is-offset-3">
-          <div class="box animated fadeIn is-warning" >
-              { appoitmentBooked ?
-                <div>
-                  <div class="animated fadeIn title is-6">Appointment Booked Succesfully</div>
-                  <br/>
-                  <div class="animated fadeIn button is-info"><NavBarLink exact to="/appointment/me">Proceed to My Appointments</NavBarLink></div>
-                </div> :
-                <div>
+          <div class="container has-text-centered">
+            <br/><br/>
+            <section class="hero is-warning is-fullheight">
+              <div class="column is-waring is-6 is-offset-3">
+                <div class="box animated fadeIn is-warning" >
+                
+                    { appoitmentBooked ?
+                      <div>
+                        <div class="animated fadeIn title is-6">Appointment Booked Succesfully</div>
+                        <br/>
+                        <div class="animated fadeIn button is-info"><NavBarLink exact to="/appointment/me">Proceed to My Appointments</NavBarLink></div>
+                      </div> :
+                      <div>
 
-                  <div class="field">
-                    <Select defaultValue={typeOptions[0]} options={typeOptions} onChange={({ value }) => setType(value)}/>
-                  </div>
+                        <div class="field">
+                          <Select defaultValue={typeOptions[0]} options={typeOptions} onChange={({ value }) => setType(value)}/>
+                        </div>
 
-                  <div class="field">
-                    <Select defaultValue={durationOptions[1]} options={durationOptions} onChange={({ value }) => setDuration(value)}/>
-                  </div>
+                        <div class="field">
+                          <Select defaultValue={durationOptions[1]} options={durationOptions} onChange={({ value }) => setDuration(value)}/>
+                        </div>
 
-                  <div class="field">
-                    <div calss="container">
-                      <DayPicker onDayClick={onDateChange}/>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <TimePicker
-                    showSecond={false}
-                    defaultValue={date}
-                    className="xxx"
-                    onChange={onTimeChange}
-                    format='h:mm a'
-                    use12Hours
-                    inputReadOnly
-                    />
-                  </div>
+                        <div class="field">
+                          <div calss="container">
+                            <DayPicker onDayClick={onDateChange}/>
+                          </div>
+                        </div>
+                        <div class="field">
+                          <TimePicker
+                          showSecond={false}
+                          defaultValue={date}
+                          className="xxx"
+                          onChange={onTimeChange}
+                          format='h:mm a'
+                          use12Hours
+                          inputReadOnly
+                          />
+                        </div>
 
 
-                  <hr/>
-                  <div class="field">
-                    <label class="label"></label>
-                    <button class="button is-medium is-info" onClick={handleSubmit}>Book Appointment</button>
-                  </div>
+                        <hr/>
+                        <div class="field">
+                          <label class="label"></label>
+                          <button class="button is-medium is-info" onClick={handleSubmit}>Book Appointment</button>
+                        </div>
+                      </div>
+                    }
+
                 </div>
-              }
-
+              </div>
+            </section>
           </div>
-        </div>
-      </section>
+
     );
 
 }
