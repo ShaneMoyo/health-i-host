@@ -22,43 +22,7 @@ function MyAppointments (props) {
     setDeleteId(deleteId)
   }
   const handleDeleteAppointment = () => deleteAppointment(deleteId).then(() => setShowModal(false))
-  const myAppointments = appointments.map(appointment => {
-    const old = <AppointmentItem key={appointment._id} appointment={ appointment } toggleModal={() => handelToggleModdle(appointment._id) }/>
-    const capatilizedType = appointment.type.charAt(0).toUpperCase() + appointment.type.slice(1)
-    const colorMap = {
-      massage: 'success',
-      movement: 'primary',
-      mineral: 'warning'
-    }
-    const color = colorMap[appointment.type];
-    const className = `tile is-child notification has-text-white is-${color}`
-
-    const neww = <li>
-                  <Fade>
-                    <div>
-
-                    <div class="tile is-parent is-vertical">
-                      <article class={className}>
-                        <span class="icon has-text-info is-pulled-right">
-                          <i class="fas fa-info-circle">
-                          <Icon path={mdiDotsHorizontal}
-                            title="User Profile"
-                            size={1}
-                            horizontal
-                            vertical
-                            color="white"
-                            />
-                          </i>
-                        </span>
-                        <p class="title">{capatilizedType}</p>
-                        <p class="subtitle">{moment(appointment.date).format('MM/DD/YYYY hh:mm a')}</p>
-                      </article>
-                    </div>
-                    </div>
-                  </Fade>
-                </li>
-    return neww
-  })
+  const myAppointments = appointments.map(appointment => <AppointmentItem key={appointment._id} appointment={ appointment } toggleModal={() => handelToggleModdle(appointment._id) }/>)
 
   return(
       <div class="hero-body">

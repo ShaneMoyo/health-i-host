@@ -4,6 +4,9 @@ import { updateAppointment } from './actions';
 import moment from 'moment'
 import DateTimePicker from 'react-datetime-picker';
 import Fade from 'react-reveal/Fade';
+import Icon from '@mdi/react'
+import {  mdiDotsHorizontal } from '@mdi/js'
+
 
 function AppointmentItem (props){
 
@@ -23,7 +26,16 @@ function AppointmentItem (props){
     })
   }
 
-  return(
+  const capatilizedType = appointment.type.charAt(0).toUpperCase() + appointment.type.slice(1)
+  const colorMap = {
+    massage: 'success',
+    movement: 'primary',
+    mineral: 'warning'
+  }
+  const color = colorMap[appointment.type];
+  const className = `tile is-child notification has-text-white is-${color}`
+
+  const old = (
     <li class="message is-warning animated slideInUp">
       <Fade>
         <div >
@@ -100,6 +112,31 @@ function AppointmentItem (props){
     </Fade>
   </li>
   )
+
+  return <li>
+          <Fade>
+            <div>
+
+            <div class="tile is-parent is-vertical">
+              <article class={className}>
+                <span class="icon has-text-info is-pulled-right">
+                  <i class="fas fa-info-circle">
+                  <Icon path={mdiDotsHorizontal}
+                    title="User Profile"
+                    size={1}
+                    horizontal
+                    vertical
+                    color="white"
+                    />
+                  </i>
+                </span>
+                <p class="title">{capatilizedType}</p>
+                <p class="subtitle">{moment(appointment.date).format('MM/DD/YYYY hh:mm a')}</p>
+              </article>
+            </div>
+            </div>
+          </Fade>
+        </li>
 
 }
 
