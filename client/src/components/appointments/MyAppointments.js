@@ -13,8 +13,12 @@ function MyAppointments (props) {
   const { appointments, loading, deleteAppointment, loadMyAppointments } = props;
   const [showModal, setShowModal] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
+  const handelToggleModdle = (deleteId) => {
+    setShowModal(!showModal);
+    setDeleteId(deleteId)
+  }
   const handleDeleteAppointment = () => deleteAppointment(deleteId).then(() => setShowModal(false))
-  const myAppointments = appointments.map(appointment => <AppointmentItem key={appointment._id} appointment={ appointment } toggleModal={() => setShowModal(!showModal) }/>)
+  const myAppointments = appointments.map(appointment => <AppointmentItem key={appointment._id} appointment={ appointment } toggleModal={() => handelToggleModdle(appointment._id) }/>)
 
   return(
       <div class="hero-body">
