@@ -23,11 +23,19 @@ function MyAppointments (props) {
   const myAppointments = appointments.map(appointment => {
     const old = <AppointmentItem key={appointment._id} appointment={ appointment } toggleModal={() => handelToggleModdle(appointment._id) }/>
     const capatilizedType = appointment.type.charAt(0).toUpperCase() + appointment.type.slice(1)
+    const colorMap = {
+      massage: 'success',
+      movement: 'primary',
+      mineral: 'warning'
+    }
+    const color = colorMap[appointment.type];
+    const className = `tile is-child notification is-${color}`
+
     const neww = <li>
                   <Fade>
                     <div>
                     <div class="tile is-parent is-vertical">
-                      <article class="tile is-child notification is-primary">
+                      <article class={className}>
                         <p class="title">{capatilizedType}</p>
                         <p class="subtitle">{moment(appointment.date).format('MM/DD/YYYY hh:mm a')}</p>
                       </article>
