@@ -147,7 +147,26 @@ function AppointmentItem (props){
                   </p>
                   <p class="subtitle animated fadeInDown">Status {appointment.status}</p>
                   <div class="is-divider" data-content="OR"></div>
+
+                  { addNote &&
+                    <div class="control animated fadeIn">
+                      <textarea class="textarea is-outlined" placeholder={appointment.note}></textarea>
+                      <br/>
+                    </div>
+                  }
+
                   <p class="buttons animated fadeInDown">
+                    <a class="button is-primary is-inverted is-outlined" onClick={() => setaAddNote(!addNote)}>
+                      <span>Add Note</span>
+                      <span class="icon is-small">
+                        <Icon path={mdiPlus}
+
+                          size={0.7}
+
+                          color="white"
+                          />
+                      </span>
+                    </a>
                     <a class="button is-primary is-inverted is-outlined" onClick={() => toggleModal(_id)}>
                       <span>Cancel</span>
                       <span class="icon is-small">
@@ -169,17 +188,7 @@ function AppointmentItem (props){
                           />
                       </span>
                     </a>
-                    <a class="button is-primary is-inverted is-outlined">
-                      <span>Add Note</span>
-                      <span class="icon is-small">
-                        <Icon path={mdiPlus}
 
-                          size={0.7}
-
-                          color="white"
-                          />
-                      </span>
-                    </a>
                   </p>
                   </div>
                 }
