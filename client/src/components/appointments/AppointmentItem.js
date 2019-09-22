@@ -5,7 +5,7 @@ import moment from 'moment'
 import DateTimePicker from 'react-datetime-picker';
 import Fade from 'react-reveal/Fade';
 import Icon from '@mdi/react'
-import {  mdiDotsHorizontal, mdiCommentProcessingOutline, mdiPencilOutline, mdiWindowClose, mdiWrenchOutline, mdiPlusBoxOutline, mdiPlus } from '@mdi/js'
+import {  mdiCloseCircleOutline, mdiDotsHorizontal, mdiCommentProcessingOutline, mdiPencilOutline, mdiWindowClose, mdiWrenchOutline, mdiPlusBoxOutline, mdiPlus, mdiCheck } from '@mdi/js'
 
 
 function AppointmentItem (props){
@@ -143,30 +143,53 @@ function AppointmentItem (props){
                 { edit &&
                   <div>
                   <p class="subtitle animated fadeInDown">
-                    Duration {appointment.duration}
+                    Duration - {appointment.duration}
                   </p>
-                  <p class="subtitle animated fadeInDown">Status {appointment.status}</p>
+                  <p class="subtitle animated fadeInDown">Status - {appointment.status}</p>
                   <div class="is-divider" data-content="OR"></div>
 
                   { addNote &&
                     <div class="control animated fadeIn">
-                      <textarea class="textarea is-outlined" placeholder={appointment.note}></textarea>
+                      <span class="icon is-small is-pulled-right" onClick={() => setaAddNote(!addNote)}>
+                        <Icon path={mdiWindowClose}
+                        size={0.7}
+                        color="white"
+                        />
+                      </span>
+                      <textarea class="textarea is-outlined" placeholder={appointment.note} onChange={({ target }) => setNote(target.value)}></textarea>
                       <br/>
                     </div>
                   }
 
+                  { showNotes &&
+                    <p class="subtitle animated fadeInDown">
+                      Note - {appointment.note}
+                    </p>
+                  }
+
                   <p class="buttons animated fadeInDown">
-                    <a class="button is-primary is-inverted is-outlined" onClick={() => setaAddNote(!addNote)}>
-                      <span>Add Note</span>
-                      <span class="icon is-small">
-                        <Icon path={mdiPlus}
+                    { !addNote ?
+                      <a class="button is-primary is-inverted is-outlined" onClick={() => setaAddNote(!addNote)}>
+                        <span>{ initialNote ? 'Edit Note' : 'Add Note' }</span>
+                        <span class="icon is-small">
+                          <Icon path={mdiPlus}
+                            size={0.7}
+                            color="white"
+                            />
+                        </span>
+                      </a> :
+                      <a class="button is-primary is-inverted is-outlined" onClick={() => handleClientUpdate()}>
+                        <span>Save</span>
+                        <span class="icon is-small">
+                          <Icon path={mdiCheck}
+                            size={0.7}
+                            color="white"
+                            />
+                        </span>
+                      </a>
 
-                          size={0.7}
+                    }
 
-                          color="white"
-                          />
-                      </span>
-                    </a>
                     <a class="button is-primary is-inverted is-outlined" onClick={() => toggleModal(_id)}>
                       <span>Cancel</span>
                       <span class="icon is-small">

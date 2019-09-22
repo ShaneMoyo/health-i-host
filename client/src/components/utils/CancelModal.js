@@ -10,14 +10,14 @@ export default class CancelModal extends Component {
         <div class="modal-background"></div>
         <div class="modal-card">
           <header class="modal-card-head">
-            <p class="modal-card-title">Cancel Appointment</p>
+            <p class="modal-card-title"></p>
             <button  onClick={() => this.props.toggleModal()}class="delete" aria-label="close"></button>
           </header>
           <section class="modal-card-body">
             Are you sure you want to cancel? Once cancelled the appointment must be rescheduled if you change you mind.
           </section>
           <footer class="modal-card-foot">
-            <button onClick={() => this.props.handleDeleteAppointment()} class="button is-danger">Cancel</button>
+            <button onClick={() => this.props.handleDeleteAppointment()} class="button is-primary">Cancel Appointment</button>
           </footer>
         </div>
       </div>)
