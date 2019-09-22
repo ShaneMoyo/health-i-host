@@ -5,7 +5,7 @@ import moment from 'moment'
 import DateTimePicker from 'react-datetime-picker';
 import Fade from 'react-reveal/Fade';
 import Icon from '@mdi/react'
-import {  mdiDotsHorizontal, mdiCommentProcessingOutline, mdiPencilOutline, mdiWindowClose } from '@mdi/js'
+import {  mdiDotsHorizontal, mdiCommentProcessingOutline, mdiPencilOutline, mdiWindowClose, mdiWrenchOutline, mdiPlusBoxOutline, mdiPlus } from '@mdi/js'
 
 
 function AppointmentItem (props){
@@ -114,29 +114,77 @@ function AppointmentItem (props){
   // </li>
   // )
 
-  return <li>
+  return <li class="appointments">
           <Fade>
             <div>
 
-            <div class="tile is-parent is-vertical">
+            <div class={edit ? "tile is-parent is-vertical grow more" : "tile is-parent is-vertical grow" }>
               <article class={className}>
 
-                <span class="icon has-text-info is-pulled-right animated fadeIn" onClick={() => setEdit(!edit)}>
-                  <i class="fas fa-info-circle animated fadeIn">
-                  <Icon path={ edit ? mdiWindowClose : mdiDotsHorizontal}
-                    title="User Profile"
-                    size={1}
-                    horizontal
-                    vertical
-                    color="white"
-                    />
+                <span class="icon has-text-info is-pulled-right " onClick={() => setEdit(!edit)}>
+                  <i class="fas fa-info-circle">
+                    <Icon
+                      className="animated fadeIn"
+                      path={ edit ? mdiWindowClose : mdiDotsHorizontal}
+                      title="User Profile"
+                      size={1}
+                      horizontal
+                      vertical
+                      color="white"
+                      />
                   </i>
                 </span>
 
-                     <br/>
-                  <p class="title">{capatilizedType}</p>
-                  <hr/>
-                  <p class="subtitle">{moment(appointment.date).format('MM/DD/YYYY hh:mm a')}</p>
+                <br/>
+                <p class="title">{capatilizedType}</p>
+                <p class="subtitle">
+                  {moment(appointment.date).format('M/DD h:mm a')}
+                </p>
+                { edit &&
+                  <div>
+                  <p class="subtitle animated fadeInDown">
+                    Duration {appointment.duration}
+                  </p>
+                  <p class="subtitle animated fadeInDown">Status {appointment.status}</p>
+                  <div class="is-divider" data-content="OR"></div>
+                  <p class="buttons animated fadeInDown">
+                    <a class="button is-primary is-inverted is-outlined" onClick={() => toggleModal(_id)}>
+                      <span>Cancel</span>
+                      <span class="icon is-small">
+                        <Icon path={mdiWindowClose}
+
+                          size={0.7}
+                          color="white"
+                          />
+                      </span>
+                    </a>
+                    <a class="button is-primary is-inverted is-outlined">
+                      <span>Edit</span>
+                      <span class="icon is-small">
+                        <Icon path={mdiPencilOutline}
+
+                          size={0.7}
+
+                          color="white"
+                          />
+                      </span>
+                    </a>
+                    <a class="button is-primary is-inverted is-outlined">
+                      <span>Add Note</span>
+                      <span class="icon is-small">
+                        <Icon path={mdiPlus}
+
+                          size={0.7}
+
+                          color="white"
+                          />
+                      </span>
+                    </a>
+                  </p>
+                  </div>
+                }
+
+
               </article>
             </div>
             </div>

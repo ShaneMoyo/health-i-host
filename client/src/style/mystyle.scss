@@ -94,5 +94,25 @@ p {
 .react-datetime-picker__wrapper {
   border: none !important;
 }
+.appointments {
+  display: block;
+}
+.appointment-list {
+  display: block;
+}
+.grow {
+  opacity: 0.8 !important;
+
+  transition: all .1s ease-in-out;
+}
+.grow:hover {
+  opacity: 1 !important;
+  transform: scale(1.01);
+}
+.grow.more {
+
+
+
+}
 
 @import "../../node_modules/bulma/bulma";

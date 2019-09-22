@@ -35,8 +35,8 @@ function MyAppointments (props) {
               />
               <h3 class="title is-3 animated fadeIn has-text-centered">Appointments</h3>
               <hr/>
-              <br/>
-              <ul>
+              
+              <ul class="appointment-list">
                 {myAppointments}
               </ul>
             </div>
