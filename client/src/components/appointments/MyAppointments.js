@@ -8,6 +8,8 @@ import Fade from 'react-reveal/Fade';
 import Icon from '@mdi/react'
 import {  mdiDotsHorizontal, mdiPlus } from '@mdi/js'
 import { NavLink } from 'react-router-dom';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
+import Loader from 'react-loader-spinner'
 
 const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
 
@@ -36,33 +38,43 @@ function MyAppointments (props) {
                 showCancelModal={showModal}
                 handleDeleteAppointment={handleDeleteAppointment}
               />
-              <ul class="appointment-list">
-                {myAppointments}
-                <li class="appointments">
-                <NavBarLink exact to="/appointment">
-                  <div class="tile is-parent is-vertical grow more">
-                    <article class="tile is-child notification has-text-white is-info">
-                    <p class="title">
-                      Book Appointment
-                      <span class="icon has-text-info is-pulled-right ">
-                      <i class="fas fa-info-circle">
-                      <Icon
-                      className="animated fadeIn"
-                      path={mdiPlus}
-                      title="User Profile"
-                      size={1}
-                      horizontal
-                      vertical
-                      color="white"
-                      />
-                      </i>
-                      </span>
-                    </p>
-                    </article>
-                  </div>
-                  </NavBarLink>
-                </li>
-              </ul>
+              { loading ?
+                <div class="has-text-centered">
+                <Loader
+                   type="Grid"
+                   color="#8ab6c6"
+                   height={500}
+                   width={100}
+
+                /></div>:
+                <ul class="appointment-list">
+                  {myAppointments}
+                  <li class="appointments">
+                  <NavBarLink exact to="/appointment">
+                    <div class="tile is-parent is-vertical grow more">
+                      <article class="tile is-child notification has-text-white is-info">
+                      <p class="title">
+                        Book
+                        <span class="icon has-text-info is-pulled-right ">
+                        <i class="fas fa-info-circle">
+                        <Icon
+                        className="animated fadeIn"
+                        path={mdiPlus}
+                        title="User Profile"
+                        size={1}
+                        horizontal
+                        vertical
+                        color="white"
+                        />
+                        </i>
+                        </span>
+                      </p>
+                      </article>
+                    </div>
+                    </NavBarLink>
+                  </li>
+                </ul>
+              }
             </div>
           </div>
         </div>
