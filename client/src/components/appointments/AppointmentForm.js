@@ -5,9 +5,10 @@ import Select from 'react-select'
 import DayPicker from 'react-day-picker';
 import TimePicker from 'rc-time-picker';
 import { bookAppointment } from './actions';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import 'react-day-picker/lib/style.css';
 import 'rc-time-picker/assets/index.css';
+
 
 const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
 function AppointmentForm(props) {
@@ -53,6 +54,7 @@ function AppointmentForm(props) {
       { value: 1.5, label: '1.5 Hours ' },
       { value: 2, label: '2 Hours' }
     ];
+    if (appoitmentBooked) { return <Redirect to='/appointment/booked'/> }
     return (
           <div class="container has-text-centered">
             <br/><br/>
@@ -60,12 +62,7 @@ function AppointmentForm(props) {
               <div class="column is-waring is-one-third is-offset-one-third">
                 <div class="box animated fadeIn is-warning" >
 
-                    { appoitmentBooked ?
-                      <div>
-                        <div class="animated fadeIn title is-6">Appointment Booked Succesfully</div>
-                        <br/>
-                        <div class="animated fadeIn button is-info"><NavBarLink exact to="/appointment/me">Proceed to My Appointments</NavBarLink></div>
-                      </div> :
+
                       <div>
 
                         <div class="field">
@@ -100,7 +97,7 @@ function AppointmentForm(props) {
                           <button class="button is-medium is-info" onClick={handleSubmit}>Book Appointment</button>
                         </div>
                       </div>
-                    }
+
 
                 </div>
               </div>
