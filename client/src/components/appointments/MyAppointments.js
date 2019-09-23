@@ -27,7 +27,8 @@ function MyAppointments (props) {
     setDeleteId(deleteId)
   }
   const handleDeleteAppointment = () => deleteAppointment(deleteId).then(() => setShowModal(false))
-  const myAppointments = appointments.map(appointment => <AppointmentItem key={appointment._id} appointment={ appointment } toggleModal={() => handelToggleModdle(appointment._id) }/>)
+  const sortedAppointments = appointments.sort((a, b) => a.date - b.date);
+  const myAppointments = sortedAppointments.map(appointment => <AppointmentItem key={appointment._id} appointment={ appointment } toggleModal={() => handelToggleModdle(appointment._id) }/>)
 
   return(
       <div class="hero-body">
@@ -45,7 +46,6 @@ function MyAppointments (props) {
                    color="#8ab6c6"
                    height={500}
                    width={100}
-
                 /></div>:
                 <ul class="appointment-list">
                   {myAppointments}

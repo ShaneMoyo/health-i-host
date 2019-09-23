@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from '../components/navigation/Navigation';
-
+import Footer from '../components/footer/Footer';
 import Routes from './Routes';
 import ScrollToTop from './ScrollToTop';
 import { checkForToken } from '../components/auth/actions';
@@ -31,6 +31,7 @@ class App extends Component {
             </head>
             <Navigation/>
             <Routes/>
+            <Footer/>
           </div>
         </ScrollToTop>
       </Router>
