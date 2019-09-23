@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import Icon from '@mdi/react'
 import {  mdiHumanHandsup, mdiRun, mdiGrain } from '@mdi/js'
 import Fade from 'react-reveal/Fade';
+import { NavLink } from 'react-router-dom';
+
+
+
+const NavBarLink = props => <NavLink {...props} className="nav-link tile is-parent" activeClassName="active"/>;
 
 
 export default class Landing extends Component {
@@ -32,7 +37,7 @@ export default class Landing extends Component {
         <br/>
         <br/>
         <br/>
-        <Fade delay={1000}>
+        <Fade>
         <div class="container has-text-centered">
           <div class="subtitle has-text-centered">
             A healthy body allows us to live an optimal life with energy and enthusiasm.
@@ -47,10 +52,12 @@ export default class Landing extends Component {
         <br/>
         <br/>
         <br/>
+        <Fade >
         <div class="tile is-ancestor">
           <div class="tile is-vertical">
             <div class="tile">
-              <div class="tile is-parent">
+
+              <NavBarLink exact to="/massage">
                 <article class="tile is-child notification is-primary">
                   <span class="icon is-large is-pulled-left" >
                     <Icon path={mdiHumanHandsup}
@@ -59,12 +66,14 @@ export default class Landing extends Component {
                     />
                   </span>
                   <p class="title">Massage Therapy</p>
-                  <p class="subtitle">Top tile</p>
+                  <br/>
+                  <p class="subtitle">Learn More</p>
                 </article>
+                </NavBarLink>
 
-              </div>
 
-              <div class="tile is-parent">
+
+              <NavBarLink exact to="/minerals">
 
                 <article class="tile is-child notification is-warning has-text-white">
                 <span class="icon is-large is-pulled-left" >
@@ -74,12 +83,13 @@ export default class Landing extends Component {
                   />
                 </span>
                   <p class="title">Mineral Therapy</p>
-                  <p class="subtitle">Bottom tile</p>
+                  <br/>
+                  <p class="subtitle">Learn More</p>
                 </article>
 
-              </div>
+              </NavBarLink>
 
-              <div class="tile is-parent">
+              <NavBarLink exact to="/movement">
 
               <article class="tile is-child notification is-success">
               <span class="icon is-large is-pulled-left" >
@@ -89,10 +99,11 @@ export default class Landing extends Component {
                 />
               </span>
                 <p class="title">Movement Therapy</p>
-                <p class="subtitle">With an image</p>
+                <br/>
+                <p class="subtitle">Learn More</p>
               </article>
 
-              </div>
+              </NavBarLink>
 
 
             </div>
@@ -100,6 +111,7 @@ export default class Landing extends Component {
           </div>
 
         </div>
+        </Fade>
         </div>
       </body>
     );

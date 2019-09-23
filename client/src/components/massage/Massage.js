@@ -11,7 +11,9 @@ class Minerals extends Component {
       'Molestie ac feugiat sed lectus vestibulum. Feugiat sed lectus vestibulum mattis. Volutpat diam ut venenatis tellus in metus vulputate. Feugiat in fermentum posuere urna nec. Pharetra convallis posuere morbi leo urna molestie at. Accumsan lacus vel facilisis volutpat est velit egestas. Fermentum leo vel orci porta. Faucibus interdum posuere lorem ipsum.',
       'Feugiat sed lectus vestibulum mattis.',
       'Massage',
-      'Minerals are substances found in food that your body needs for growth and health',
+      `An intuitive art form rooted in scientific and experiential hands on healing to allow the
+
+body to move freely in its surroundings.`,
 
     ]
   }

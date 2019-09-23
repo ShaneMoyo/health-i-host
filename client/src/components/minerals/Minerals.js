@@ -11,7 +11,10 @@ class Minerals extends Component {
       'Molestie ac feugiat sed lectus vestibulum. Feugiat sed lectus vestibulum mattis. Volutpat diam ut venenatis tellus in metus vulputate. Feugiat in fermentum posuere urna nec. Pharetra convallis posuere morbi leo urna molestie at. Accumsan lacus vel facilisis volutpat est velit egestas. Fermentum leo vel orci porta. Faucibus interdum posuere lorem ipsum.',
       'Feugiat sed lectus vestibulum mattis.',
       'Minerals',
-      'Minerals are substances found in food that your body needs for growth and health',
+      `There is a constant and complex dance of minerals happening in the body to maintain
+balance and homeostasis. Minerals are the spark plug of life and necessary for the body
+
+to perform.`,
 
     ]
   }
