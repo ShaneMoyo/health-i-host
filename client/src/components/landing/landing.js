@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Icon from '@mdi/react'
 import {  mdiHumanHandsup, mdiRun, mdiGrain } from '@mdi/js'
+import Fade from 'react-reveal/Fade';
 
 
 export default class Landing extends Component {
@@ -12,7 +13,7 @@ export default class Landing extends Component {
           <div class="hero-body">
             <div class="container has-text-centered">
               <div class="column is-6 is-offset-3">
-                
+
 
                 <h1 class="animated fadeIn title">
                     Healthihost
@@ -31,13 +32,18 @@ export default class Landing extends Component {
         <br/>
         <br/>
         <br/>
-        <div class="subtitle has-text-centered">
-        A healthy body allows us to live an optimal life with energy and enthusiasm.
-        Do you want to be in balance, free from pain, able to be active, and doing your heart’s
-
-        desires?
-        Let’s Talk!
+        <Fade delay={1000}>
+        <div class="container has-text-centered">
+          <div class="subtitle has-text-centered">
+            A healthy body allows us to live an optimal life with energy and enthusiasm.
+            Do you want to be in balance, free from pain, able to be active, and doing your heart’s desires?
+          </div>
+          <br/>
+          <div class="subtitle has-text-centered">
+            Let’s Talk!
+          </div>
         </div>
+        </Fade>
         <br/>
         <br/>
         <br/>
