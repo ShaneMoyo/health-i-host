@@ -58,9 +58,10 @@ p {
 
 .hero.is-info {
   background: linear-gradient(
-      rgba(255, 255, 255, 0.6),
-      rgba(124, 101, 8, 0.6)
-    ), url('../assets/images/palm-background.jpg') no-repeat center center fixed;
+  rgba(50,118,169, 0.9),
+  rgba(50,118,169, 0.2),
+  rgba(255, 255, 255, 1)
+    ), url('../assets/images/background3.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

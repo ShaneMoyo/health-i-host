@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Icon from '@mdi/react'
+import {  mdiHumanHandsup, mdiRun, mdiGrain } from '@mdi/js'
 
 
 export default class Landing extends Component {
@@ -10,20 +12,89 @@ export default class Landing extends Component {
           <div class="hero-body">
             <div class="container has-text-centered">
               <div class="column is-6 is-offset-3">
-                <br/>
-                <br/>
-                <br/>
+                
+
                 <h1 class="animated fadeIn title">
                     Healthihost
                 </h1>
                 <h2 class="animated fadeIn subtitle">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis <strong>nostrud</strong> ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Enabling the Vitality of the body Naturally.
+
                 </h2>
+                <br/>
+                <br/>
               </div>
             </div>
           </div>
         </section>
+        <div class="box is-white">
+        <br/>
+        <br/>
+        <br/>
+        <div class="subtitle has-text-centered">
+        A healthy body allows us to live an optimal life with energy and enthusiasm.
+        Do you want to be in balance, free from pain, able to be active, and doing your heart’s
+
+        desires?
+        Let’s Talk!
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <div class="tile is-ancestor">
+          <div class="tile is-vertical">
+            <div class="tile">
+              <div class="tile is-parent">
+                <article class="tile is-child notification is-primary">
+                  <span class="icon is-large is-pulled-left" >
+                    <Icon path={mdiHumanHandsup}
+                    size={2}
+                    color="white"
+                    />
+                  </span>
+                  <p class="title">Massage Therapy</p>
+                  <p class="subtitle">Top tile</p>
+                </article>
+
+              </div>
+
+              <div class="tile is-parent">
+
+                <article class="tile is-child notification is-warning has-text-white">
+                <span class="icon is-large is-pulled-left" >
+                  <Icon path={mdiGrain}
+                  size={2}
+                  color="white"
+                  />
+                </span>
+                  <p class="title">Mineral Therapy</p>
+                  <p class="subtitle">Bottom tile</p>
+                </article>
+
+              </div>
+
+              <div class="tile is-parent">
+
+              <article class="tile is-child notification is-success">
+              <span class="icon is-large is-pulled-left" >
+                <Icon path={mdiRun}
+                size={2}
+                color="white"
+                />
+              </span>
+                <p class="title">Movement Therapy</p>
+                <p class="subtitle">With an image</p>
+              </article>
+
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+        </div>
       </body>
     );
   }
