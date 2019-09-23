@@ -90,6 +90,9 @@ p {
   opacity: 1 !important;
   transform: scale(1.01); }
 
+.DayPicker {
+  display: block !important; }
+
 /*! bulma.io v0.6.2 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {

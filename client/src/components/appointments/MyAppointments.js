@@ -6,7 +6,10 @@ import CancelModal from '../utils/CancelModal.js';
 import moment from 'moment'
 import Fade from 'react-reveal/Fade';
 import Icon from '@mdi/react'
-import {  mdiDotsHorizontal } from '@mdi/js'
+import {  mdiDotsHorizontal, mdiPlus } from '@mdi/js'
+import { NavLink } from 'react-router-dom';
+
+const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
 
 function MyAppointments (props) {
 
@@ -33,11 +36,32 @@ function MyAppointments (props) {
                 showCancelModal={showModal}
                 handleDeleteAppointment={handleDeleteAppointment}
               />
-              <h3 class="title is-3 animated fadeIn has-text-centered">Appointments</h3>
-              <hr/>
-              
               <ul class="appointment-list">
                 {myAppointments}
+                <li class="appointments">
+                <NavBarLink exact to="/appointment">
+                  <div class="tile is-parent is-vertical grow more">
+                    <article class="tile is-child notification has-text-white is-info">
+                    <p class="title">
+                      Book Appointment
+                      <span class="icon has-text-info is-pulled-right ">
+                      <i class="fas fa-info-circle">
+                      <Icon
+                      className="animated fadeIn"
+                      path={mdiPlus}
+                      title="User Profile"
+                      size={1}
+                      horizontal
+                      vertical
+                      color="white"
+                      />
+                      </i>
+                      </span>
+                    </p>
+                    </article>
+                  </div>
+                  </NavBarLink>
+                </li>
               </ul>
             </div>
           </div>

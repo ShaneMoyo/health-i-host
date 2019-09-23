@@ -57,9 +57,9 @@ function AppointmentForm(props) {
           <div class="container has-text-centered">
             <br/><br/>
             <section class="hero is-warning is-fullheight">
-              <div class="column is-waring is-6 is-offset-3">
+              <div class="column is-waring is-one-third is-offset-one-third">
                 <div class="box animated fadeIn is-warning" >
-                
+
                     { appoitmentBooked ?
                       <div>
                         <div class="animated fadeIn title is-6">Appointment Booked Succesfully</div>
