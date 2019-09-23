@@ -200,17 +200,6 @@ function AppointmentItem (props){
                           />
                       </span>
                     </a>
-                    <a class="button is-primary is-inverted is-outlined">
-                      <span>Edit</span>
-                      <span class="icon is-small">
-                        <Icon path={mdiPencilOutline}
-
-                          size={0.7}
-
-                          color="white"
-                          />
-                      </span>
-                    </a>
 
                   </p>
                   </div>
