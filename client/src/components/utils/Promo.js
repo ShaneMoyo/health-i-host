@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const NavBarLink = props => <NavLink {...props} 
-className="nav-link" 
+const NavBarLink = props => <NavLink {...props}
+className="nav-link"
 activeClassName="active"
 />;
 
@@ -11,7 +11,7 @@ class Promo extends Component {
   render(){
     const { header1, header2 } = this.props;
     return(
-      <section class="hero is-warning is-bold is-small promo-block">
+      <section class="hero is-primary is-bold promo-block is-fullheight-with-navbar">
         <div class="hero-body">
           <div class="container">
           <br/>
@@ -19,9 +19,9 @@ class Promo extends Component {
             <h1 class="animated fadeIn title">
               { header1 }
             </h1>
-            <h2 class="animated fadeIn subtitle">
+            <h1 class="animated fadeIn subtitle">
               { header2 }
-            </h2>
+            </h1>
             <div class="field">
             <a class="button is-white is-outlined">
               <NavBarLink exact to="/appointment">Book Appointment</NavBarLink>

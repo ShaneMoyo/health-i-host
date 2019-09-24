@@ -18,12 +18,12 @@ export default class Landing extends Component {
           <div class="hero-body">
             <div class="container has-text-centered">
               <div class="column is-6 is-offset-3">
+
               <div class="tile is-parent">
                 <article class="tile is-child notification is-success landing">
                   <div class="content">
                     <p class="title">Healthihost</p>
                     <p class="subtitle">Enabling the Vitality of the body Naturally</p>
-
                   </div>
                 </article>
               </div>
@@ -31,8 +31,8 @@ export default class Landing extends Component {
 
               <br/>
               <br/>
-                <br/>
-                <br/>
+              <br/>
+              <br/>
               </div>
             </div>
           </div>
