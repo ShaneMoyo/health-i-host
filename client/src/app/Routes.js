@@ -8,7 +8,7 @@ import PrivateRoute from './PrivateRoute';
 import Landing from '../components/landing/landing';
 import Massage from '../components/massage/Massage';
 import Minerals from '../components/minerals/Minerals';
-//import Movement from '../components/movement/Movement'
+import Movement from '../components/movement/Movement'
 import AppointmentForm from '../components/appointments/AppointmentForm';
 import BookedSuccessfull from '../components/appointments/BookedSuccessfull';
 import MyAppointments from '../components/appointments/MyAppointments';
@@ -23,6 +23,7 @@ export default () => (
     <PrivateRoute exact path="/appointment/me" render={() => <MyAppointments/>}/>;
     <Route exact path="/minerals" render={() => <Minerals/>}/>;
     <Route exact path="/massage" render={() => <Massage/>}/>;
+    <Route exact path="/movement" render={() => <Movement/>}/>;
     <Redirect to="/"/>
   </Switch>
 );
