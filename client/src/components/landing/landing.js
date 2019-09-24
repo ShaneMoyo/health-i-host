@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import Icon from '@mdi/react'
-import {  mdiHumanHandsup, mdiRun, mdiGrain } from '@mdi/js'
+import {  mdiHumanHandsup, mdiRun, mdiGrain, mdiPlus } from '@mdi/js'
 import Fade from 'react-reveal/Fade';
 import { NavLink } from 'react-router-dom';
 
 
 
 const NavBarLink = props => <NavLink {...props} className="nav-link tile is-parent" activeClassName="active"/>;
+const NavButton = props => <NavLink {...props} className="button is-centered is-info is-large" activeClassName="active"/>;
 
 
 export default class Landing extends Component {
@@ -27,8 +28,6 @@ export default class Landing extends Component {
                   </div>
                 </article>
               </div>
-
-
               <br/>
               <br/>
               <br/>
@@ -41,18 +40,6 @@ export default class Landing extends Component {
         <br/>
         <br/>
         <br/>
-        <Fade>
-        <div class="container has-text-centered">
-          <div class="subtitle has-text-centered">
-            A healthy body allows us to live an optimal life with energy and enthusiasm.
-            Do you want to be in balance, free from pain, able to be active, and doing your heart’s desires?
-          </div>
-          <br/>
-          <div class="subtitle has-text-centered">
-            Let’s Talk!
-          </div>
-        </div>
-        </Fade>
         <br/>
         <br/>
         <br/>
@@ -62,7 +49,7 @@ export default class Landing extends Component {
             <div class="tile">
 
               <NavBarLink exact to="/massage">
-                <article class="tile is-child notification is-primary">
+                <article class="tile is-child notification is-primary grow">
                   <span class="icon is-large is-pulled-left" >
                     <Icon path={mdiHumanHandsup}
                     size={2}
@@ -79,7 +66,7 @@ export default class Landing extends Component {
 
               <NavBarLink exact to="/minerals">
 
-                <article class="tile is-child notification is-warning has-text-white">
+                <article class="tile is-child notification is-warning has-text-white grow">
                 <span class="icon is-large is-pulled-left" >
                   <Icon path={mdiGrain}
                   size={2}
@@ -95,7 +82,7 @@ export default class Landing extends Component {
 
               <NavBarLink exact to="/movement">
 
-              <article class="tile is-child notification is-success">
+              <article class="tile is-child notification is-success grow">
               <span class="icon is-large is-pulled-left" >
                 <Icon path={mdiRun}
                 size={2}
@@ -115,6 +102,30 @@ export default class Landing extends Component {
           </div>
 
         </div>
+        </Fade>
+        <br/>
+        <br/>
+        <Fade>
+        <div class="container has-text-centered">
+          <div class="subtitle has-text-centered">
+            A healthy body allows us to live an optimal life with energy and enthusiasm.
+            Do you want to be in balance, free from pain, able to be active, and doing your heart’s desires?
+
+          </div>
+          <br/>
+          <div class="subtitle has-text-centered">
+          <NavBarLink exact to="/appointment">
+            <div class="tile is-parent is-vertical grow more">
+              <article class="tile is-child notification has-text-white is-info">
+              <p class="title">
+                Schedule Appointment
+              </p>
+              </article>
+            </div>
+            </NavBarLink>
+          </div>
+        </div>
+
         </Fade>
         </div>
       </body>

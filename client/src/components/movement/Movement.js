@@ -17,7 +17,6 @@ class Movement extends Component {
     return(
       <div>
         <Promo header1={text[0]} header2={text[1]} header3={text[2]} icon={mdiRun} color='success'/>
-
       </div>
     );
   }

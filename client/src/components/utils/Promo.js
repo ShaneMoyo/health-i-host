@@ -16,7 +16,9 @@ class Promo extends Component {
       <section class={className}>
         <div class="hero-body">
           <div class="container ">
-
+            <br/>
+            <br/>
+            <br/>
             <div class="animated fadeIn title is-2 has-text-white">
               { header1 }
               <span class="icon is-large is-pulled-left" >
