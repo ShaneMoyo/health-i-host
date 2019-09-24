@@ -43,7 +43,7 @@ p {
   border-radius: 10px; }
 
 .hero.is-info {
-  background: linear-gradient(rgba(245, 214, 184, 0.9), rgba(245, 214, 184, 0.7), rgba(255, 255, 255, 0.7), white), url("../assets/images/palm-background.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(255, 255, 255, 0.7), white), url("../assets/images/clouds.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -92,6 +92,11 @@ p {
 
 .DayPicker {
   display: block !important; }
+
+.notification.is-success.landing {
+  background-color: none !important;
+  background: transparent !important;
+  border: solid white !important; }
 
 /*! bulma.io v0.6.2 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {

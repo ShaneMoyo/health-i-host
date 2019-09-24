@@ -59,11 +59,10 @@ p {
 .hero.is-info {
   background: linear-gradient(
 
-  rgba(245,214,184, 0.9),
-  rgba(245,214,184, 0.7),
+
   rgba(255, 255, 255, 0.7),
   rgba(255, 255, 255, 1)
-    ), url('../assets/images/palm-background.jpg') no-repeat center center fixed;
+    ), url('../assets/images/clouds.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -120,6 +119,11 @@ p {
 .DayPicker {
   display: block !important;
 
+}
+.notification.is-success.landing {
+  background-color: none !important;
+  background: transparent !important;
+  border: solid white !important;
 }
 
 @import "../../node_modules/bulma/bulma";
