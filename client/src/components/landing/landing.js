@@ -22,16 +22,15 @@ export default class Landing extends Component {
                 <article class="tile is-child notification is-success landing">
                   <div class="content">
                     <p class="title">Healthihost</p>
-                    <p class="subtitle">Enabling the Vitality of the body Naturally.</p>
-                    <div class="content">
+                    <p class="subtitle">Enabling the Vitality of the body Naturally</p>
 
-                    </div>
                   </div>
                 </article>
               </div>
 
 
-
+              <br/>
+              <br/>
                 <br/>
                 <br/>
               </div>
