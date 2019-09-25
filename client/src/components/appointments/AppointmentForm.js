@@ -14,7 +14,7 @@ const NavBarLink = props => <NavLink {...props} className="nav-link" activeClass
 function AppointmentForm(props) {
 
   const [date, setDate] = useState(moment());
-  const [type, setType] = useState('massage')
+  const [type, setType] = useState('massage');
   const [duration, setDuration] = useState(0.5);
   const [status, setStatus] = useState('pending');
   const [appoitmentBooked, setAppoitmentBooked] = useState(false);
