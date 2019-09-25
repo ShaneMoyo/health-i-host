@@ -5,7 +5,7 @@ import Routes from './Routes';
 import ScrollToTop from './ScrollToTop';
 import { checkForToken } from '../components/auth/actions';
 import { connect } from 'react-redux';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import '../style/mystyle.css';
 //import './app.css';
 
