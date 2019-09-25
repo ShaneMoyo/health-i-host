@@ -17,9 +17,7 @@ export default class Landing extends Component {
       <body>
         <section class="animated fadeIn hero is-info is-fullheight">
           <div class="hero-body">
-            <div class="container has-text-centered">
-              <div class="column is-6 is-offset-3">
-
+            <div class="column is-6 is-offset-3 has-text-centered">
               <div class="tile is-parent">
                 <article class="tile is-child notification is-success landing">
                   <div class="content">
@@ -28,56 +26,37 @@ export default class Landing extends Component {
                   </div>
                 </article>
               </div>
+              <br/><br/><br/>
+              <br/><br/><br/>
+              <br/><br/><br/>
+              <br/><br/><br/>
+              <br/><br/><br/>
               <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              <br/>
-              </div>
             </div>
           </div>
         </section>
         <div class="box is-white">
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <Fade >
-        <div class="tile is-ancestor">
-          <div class="tile is-vertical">
-            <div class="tile">
-
-              <NavBarLink exact to="/massage">
-                <article class="tile is-child notification is-primary grow">
-                  <span class="icon is-large is-pulled-left" >
-                    <Icon path={mdiHumanHandsup}
-                    size={2}
-                    color="white"
-                    />
-                  </span>
-                  <p class="title">Massage Therapy</p>
-                  <br/>
-                  <p class="subtitle">Learn More</p>
-                </article>
-                </NavBarLink>
-
-
+          <br/><br/><br/>
+          <br/><br/><br/>
+            <Fade >
+              <div class="tile is-ancestor">
+                <div class="tile is-vertical">
+                  <div class="tile">
+                    <NavBarLink exact to="/massage">
+                      <article class="tile is-child notification is-primary grow">
+                        <span class="icon is-large is-pulled-left" >
+                          <Icon path={mdiHumanHandsup}
+                          size={2}
+                          color="white"
+                          />
+                        </span>
+                        <p class="title">Massage Therapy</p>
+                        <br/>
+                        <p class="subtitle">Learn More</p>
+                      </article>
+                    </NavBarLink>
 
               <NavBarLink exact to="/minerals">
-
                 <article class="tile is-child notification is-warning has-text-white grow">
                 <span class="icon is-large is-pulled-left" >
                   <Icon path={mdiGrain}
