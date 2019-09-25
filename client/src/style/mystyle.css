@@ -98,6 +98,9 @@ p {
   background: transparent !important;
   border: solid white !important; }
 
+.hr-white {
+  background-color: #ffffff; }
+
 /*! bulma.io v0.6.2 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {

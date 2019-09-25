@@ -31,14 +31,16 @@ class Promo extends Component {
             <div class="animated fadeIn subtitle has-text-white">
               { header2 }
             </div>
+            <div class="field">
+              <a class="button is-white is-outlined">
+                <NavBarLink exact to="/appointment">Schedule Appointment</NavBarLink>
+              </a>
+            </div>
+            <hr class="hr-white"/>
             <div class="animated fadeIn subtitle has-text-white">
               { header3 }
             </div>
-            <div class="field">
-            <a class="button is-white is-outlined">
-              <NavBarLink exact to="/appointment">Book Appointment</NavBarLink>
-            </a>
-            </div>
+
           </div>
         </div>
       </section>
