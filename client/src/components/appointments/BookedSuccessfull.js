@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 
 
+
 const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
 function AppointmentForm(props) {
 
@@ -16,7 +17,7 @@ function AppointmentForm(props) {
                   <div>
                     <div class="animated fadeIn title is-6">Appointment Booked Succesfully</div>
                     <br/>
-                    <div class="animated fadeIn button is-info"><NavBarLink exact to="/appointment/me">Proceed to My Appointments</NavBarLink></div>
+                    <div class="animated fadeIn button is is-info"><NavBarLink exact to="/appointment/me">Proceed to My Appointments</NavBarLink></div>
                   </div>
                 </div>
               </div>

@@ -33,6 +33,15 @@ function AppointmentItem (props){
     movement: 'primary',
     mineral: 'warning'
   }
+  const durationOptions = {
+            0.5: '30 Minutes',
+            1: '1 Hour',
+            1.5: '1 Hour 30 Minutes',
+            2: '2 Hours'
+          };
+  const statusMap = {
+    'pending': 'Pending confirmation'
+  }
   const color = colorMap[appointment.type];
   const className = `tile is-child notification has-text-white is-${color}`
 
@@ -142,10 +151,11 @@ function AppointmentItem (props){
                 </p>
                 { edit &&
                   <div>
+                  <hr class="hr-white animated fadeIn"/>
                   <p class="subtitle animated fadeInDown">
-                    Duration - {appointment.duration}
+                    {durationOptions[appointment.duration]}
                   </p>
-                  <p class="subtitle animated fadeInDown">Status - {appointment.status}</p>
+                  <p class="subtitle animated fadeInDown">{statusMap[appointment.status]}</p>
                   <div class="is-divider" data-content="OR"></div>
 
                   { addNote &&

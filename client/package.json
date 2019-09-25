@@ -10,6 +10,7 @@
     "rc-time-picker": "^3.7.2",
     "react": "^16.9.0",
     "react-calendar": "^2.19.2",
+    "react-checkmark": "^1.1.2",
     "react-datetime-picker": "^2.7.1",
     "react-day-picker": "^7.3.2",
     "react-dom": "^16.9.0",

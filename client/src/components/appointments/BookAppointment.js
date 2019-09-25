@@ -51,7 +51,7 @@ function AppointmentForm(props) {
     const durationOptions = [
       { value: 0.5, label: '30 Minutes' },
       { value: 1, label: '1 Hour' },
-      { value: 1.5, label: '1.5 Hours ' },
+      { value: 1.5, label: '1 Hour 30 Minutes' },
       { value: 2, label: '2 Hours' }
     ];
     return (
