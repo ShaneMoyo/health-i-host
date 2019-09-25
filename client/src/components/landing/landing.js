@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {  mdiHumanHandsup, mdiRun, mdiGrain} from '@mdi/js'
 import Fade from 'react-reveal/Fade';
 import { NavLink } from 'react-router-dom';
@@ -8,36 +8,33 @@ import LandingMain from './LandingMain'
 
 const NavBarLink = props => <NavLink {...props} className="nav-link tile is-parent" activeClassName="active"/>;
 
-export default class Landing extends Component {
+export default function Landing(){
+  return(
+    <body>
+      <LandingMain/>
+      <div class="box is-white">
 
-  render(){
-    return(
-      <body>
-        <LandingMain/>
-        <div class="box is-white">
+        <br/><br/><br/>
+        <br/><br/><br/>
 
-          <br/><br/><br/>
-          <br/><br/><br/>
-
-          <Fade >
-            <div class="tile is-ancestor">
-              <div class="tile is-vertical">
-                <div class="tile">
-                  <ServiceTile icon={mdiHumanHandsup} color="primary"/>
-                  <ServiceTile icon={mdiGrain} color="warning"/>
-                  <ServiceTile icon={mdiRun} color="success"/>
-                </div>
+        <Fade >
+          <div class="tile is-ancestor">
+            <div class="tile is-vertical">
+              <div class="tile">
+                <ServiceTile icon={mdiHumanHandsup} color="primary"/>
+                <ServiceTile icon={mdiGrain} color="warning"/>
+                <ServiceTile icon={mdiRun} color="success"/>
               </div>
             </div>
-          </Fade>
+          </div>
+        </Fade>
 
-          <br/><br/>
+        <br/><br/>
 
-          <Fade>
-            <ScheduleAppointment/>
-          </Fade>
-        </div>
-      </body>
-    );
-  }
+        <Fade>
+          <ScheduleAppointment/>
+        </Fade>
+      </div>
+    </body>
+  );  
 }
