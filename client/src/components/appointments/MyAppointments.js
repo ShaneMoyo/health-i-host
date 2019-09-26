@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { loadMyAppointments, deleteAppointment } from './actions';
 import AppointmentItem from './AppointmentItem';
 import CancelModal from '../utils/CancelModal.js';
@@ -13,20 +13,23 @@ import Loader from 'react-loader-spinner'
 
 const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
 
-function MyAppointments (props) {
+export default function MyAppointments (props) {
 
-  async function loadAppointments() { await loadMyAppointments() }
+  async function loadAppointments() { await dispatch(loadMyAppointments()) }
 
   useEffect(() => { loadAppointments() }, []);
 
-  const { appointments, loading, deleteAppointment, loadMyAppointments } = props;
+  const loading = useSelector(state => state.loading);
+  const appointments = useSelector(state => state.appointments);
+  const dispatch = useDispatch();
+
   const [showModal, setShowModal] = useState(false);
   const [deleteId, setDeleteId] = useState(null);
   const handelToggleModdle = (deleteId) => {
     setShowModal(!showModal);
     setDeleteId(deleteId)
   }
-  const handleDeleteAppointment = () => deleteAppointment(deleteId).then(() => setShowModal(false))
+  const handleDeleteAppointment = () => dispatch(deleteAppointment(deleteId)).then(() => setShowModal(false))
   const sortedAppointments = appointments.sort((a, b) => a.date - b.date);
   const myAppointments = sortedAppointments.map(appointment => <AppointmentItem key={appointment._id} appointment={ appointment } toggleModal={() => handelToggleModdle(appointment._id) }/>)
 
@@ -80,13 +83,4 @@ function MyAppointments (props) {
         </div>
       </div>
   );
-  }
-
-
-export default connect(({ auth, loading, appointments }) => ({
-  loading,
-  appointments
-}), {
-   loadMyAppointments,
-   deleteAppointment
-  })(MyAppointments);
+}

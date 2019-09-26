@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import moment from 'moment'
 import Select from 'react-select'
 import DayPicker from 'react-day-picker';
@@ -11,13 +11,16 @@ import 'rc-time-picker/assets/index.css';
 
 
 const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
-function AppointmentForm(props) {
+
+export default function AppointmentForm(props) {
 
   const [date, setDate] = useState(moment());
   const [type, setType] = useState('massage');
   const [duration, setDuration] = useState(0.5);
   const [status, setStatus] = useState('pending');
   const [appoitmentBooked, setAppoitmentBooked] = useState(false);
+  const loading = useSelector(state => state.loading);
+  const dispatch = useDispatch();
 
 
   const onDateChange = newDate => {
@@ -38,7 +41,7 @@ function AppointmentForm(props) {
   }
 
   const handleSubmit = () => {
-    return props.bookAppointment({ date, type, status, duration }).then(() => setAppoitmentBooked(!appoitmentBooked))
+    return dispatch(bookAppointment({ date, type, status, duration })).then(() => setAppoitmentBooked(!appoitmentBooked))
   }
 
 
@@ -103,10 +106,5 @@ function AppointmentForm(props) {
               </div>
             </section>
           </div>
-
     );
-
 }
-
-export default connect(({ auth, loading }) => ({ loading }), { bookAppointment }
-)(AppointmentForm);

@@ -1,13 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-
-
-
 const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
-function AppointmentForm(props) {
-
+function AppointmentForm() {
     return (
           <div class="container has-text-centered">
             <br/><br/>
@@ -23,9 +18,7 @@ function AppointmentForm(props) {
               </div>
             </section>
           </div>
-
     );
-
 }
 
 export default AppointmentForm;
