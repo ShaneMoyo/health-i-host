@@ -1,13 +1,24 @@
 import React from 'react';
 import { Switch, Route, Link, Redirect, withRouter } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import { signin, signup } from './actions';
 import Credentials from './Credentials';
 
 
-function Auth({ user, signin, signup, error, location, loading }) {
+function Auth({ location }) {
   const redirect = location.state ? location.state.from : '/';
+  const loading = useSelector(state => state.loading);
+  const error = useSelector(state => state.error);
+  const user = useSelector(state => state.auth.user);
+  const dispatch = useDispatch();
 
+  const handleSignIn = (credentials) => {
+    return dispatch(signin(credentials))
+  }
+
+  const handleSignUp = (credentials) => {
+    return dispatch(signup(credentials))
+  }
 
   if(user) return <Redirect to={redirect}/>;
 
@@ -20,7 +31,7 @@ function Auth({ user, signin, signup, error, location, loading }) {
               <br/>
               <br/>
               <p>Not yet registered? <Link class="button is-outlined is-small is-light" to="/auth/signup">Sign Up</Link></p>
-              <Credentials action="Sign In" submit={signin} loading={loading} error={error}/>
+              <Credentials action="Sign In" submit={handleSignIn} loading={loading} error={error}/>
             </div>
           )}/>
           <Route path="/auth/signup" render={() => (
@@ -29,7 +40,7 @@ function Auth({ user, signin, signup, error, location, loading }) {
               <br/>
               <br/>
               <p>Already have an account? <Link class="button is-outlined is-small is-light" to="/auth/signin">Sign In</Link></p>
-              <Credentials action="Sign Up" submit={signup} allowName={true} loading={loading} error={error}/>
+              <Credentials action="Sign Up" submit={handleSignUp} allowName={true} loading={loading} error={error}/>
             </div>
           )}/>
         </Switch>
@@ -37,11 +48,4 @@ function Auth({ user, signin, signup, error, location, loading }) {
   );
 }
 
-export default withRouter(connect(
-  ({ auth, loading, error }) => ({
-    user: auth.user,
-    error,
-    loading
-  }),
-  { signup, signin }
-)(Auth));
+export default withRouter(Auth);
