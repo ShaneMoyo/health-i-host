@@ -7,7 +7,6 @@ import { checkForToken } from '../components/auth/actions';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
 import '../style/mystyle.css';
-//import './app.css';
 
 
 class App extends Component {
