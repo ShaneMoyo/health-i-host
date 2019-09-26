@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const NavBarLink = props => <NavLink {...props} className="nav-link tile is-parent" activeClassName="active"/>;
 
-export default function ScheduleAppointment(props) {
+export default function ScheduleAppointment() {
   return <div class="container has-text-centered">
           <div class="subtitle has-text-centered">
             A healthy body allows us to live an optimal life with energy and enthusiasm.

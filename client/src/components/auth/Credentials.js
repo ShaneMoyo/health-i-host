@@ -1,6 +1,7 @@
 import React from 'react';
 
 
+
 export default ({ submit, action, allowName = false, loading, error }) => (
   <div class="is-warning ">
     <div class="column is-waring is-4 is-offset-4">

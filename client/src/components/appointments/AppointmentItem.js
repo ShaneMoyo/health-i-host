@@ -7,6 +7,7 @@ import Fade from 'react-reveal/Fade';
 import Icon from '@mdi/react'
 import {  mdiCloseCircleOutline, mdiDotsHorizontal, mdiCommentProcessingOutline, mdiPencilOutline, mdiWindowClose, mdiWrenchOutline, mdiPlusBoxOutline, mdiPlus, mdiCheck } from '@mdi/js'
 import classNames from 'classnames';
+import PropTypes from 'prop-types';
 
 export default function AppointmentItem (props){
 
@@ -124,5 +125,9 @@ export default function AppointmentItem (props){
             </div>
           </Fade>
         </li>
+}
 
+AppointmentItem.propTypes = {
+  appointment: PropTypes.object,
+  toggleModal: PropTypes.func
 }

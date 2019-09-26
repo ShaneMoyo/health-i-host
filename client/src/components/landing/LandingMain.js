@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function LandingMain(props) {
+export default function LandingMain() {
   return <section class="animated fadeIn hero is-info is-fullheight">
           <div class="hero-body">
             <div class="column is-6 is-offset-3 has-text-centered">

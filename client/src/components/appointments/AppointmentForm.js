@@ -12,7 +12,7 @@ import 'rc-time-picker/assets/index.css';
 
 const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
 
-export default function AppointmentForm(props) {
+export default function AppointmentForm() {
 
   const [date, setDate] = useState(moment());
   const [type, setType] = useState('massage');

@@ -13,7 +13,7 @@ import Loader from 'react-loader-spinner'
 
 const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
 
-export default function MyAppointments (props) {
+export default function MyAppointments () {
 
   async function loadAppointments() { await dispatch(loadMyAppointments()) }
 
