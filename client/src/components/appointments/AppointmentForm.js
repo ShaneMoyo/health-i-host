@@ -44,9 +44,8 @@ export default function AppointmentForm(props) {
     return dispatch(bookAppointment({ date, type, status, duration })).then(() => setAppoitmentBooked(!appoitmentBooked))
   }
 
-  const disabledHours = () => {
-    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23];
-  }
+  const disabledHours = () => [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23];
+
 
   const typeOptions = [
     { value: 'massage', label: 'Massage Therapy' },
@@ -59,7 +58,9 @@ export default function AppointmentForm(props) {
     { value: 1.5, label: '1 Hour 30 Minutes' },
     { value: 2, label: '2 Hours' }
   ];
+
   if (appoitmentBooked) { return <Redirect to='/appointment/booked'/> }
+
   return (
         <div class="container has-text-centered">
           <br/><br/>
@@ -94,8 +95,6 @@ export default function AppointmentForm(props) {
                     inputReadOnly
                     />
                   </div>
-
-
                   <hr/>
                   <div class="field">
                     <label class="label"></label>

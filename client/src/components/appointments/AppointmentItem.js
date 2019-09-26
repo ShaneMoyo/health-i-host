@@ -24,7 +24,8 @@ export default function AppointmentItem (props){
       .then(()=> { setaAddNote(false) })
   }
 
-  const capatilizedType = appointment.type.charAt(0).toUpperCase() + appointment.type.slice(1)
+  const capatilizedType = appointment.type.charAt(0).toUpperCase() + appointment.type.slice(1);
+
   const colorMap = {
     massage: 'success',
     movement: 'primary',
@@ -46,80 +47,80 @@ export default function AppointmentItem (props){
           <Fade>
             <div>
 
-            <div class={edit ? "tile is-parent is-vertical grow more" : "tile is-parent is-vertical grow" }>
-              <article class={className}>
+              <div class={edit ? "tile is-parent is-vertical grow more" : "tile is-parent is-vertical grow" }>
+                <article class={className}>
 
-                <span class="icon has-text-info is-pulled-right " onClick={() => setEdit(!edit)}>
-                  <i class="fas fa-info-circle">
-                    <Icon
-                      className="animated fadeIn"
-                      path={ edit ? mdiWindowClose : mdiDotsHorizontal}
-                      title="User Profile"
-                      size={1}
-                      horizontal
-                      vertical
-                      color="white"
-                      />
-                  </i>
-                </span>
+                  <span class="icon has-text-info is-pulled-right " onClick={() => setEdit(!edit)}>
+                    <i class="fas fa-info-circle">
+                      <Icon
+                        className="animated fadeIn"
+                        path={ edit ? mdiWindowClose : mdiDotsHorizontal}
+                        title="User Profile"
+                        size={1}
+                        horizontal
+                        vertical
+                        color="white"
+                        />
+                    </i>
+                  </span>
 
-                <br/>
-                <p class="title">{capatilizedType}</p>
-                <p class="subtitle">
-                  {moment(appointment.date).format('M/DD h:mm a')}
-                </p>
-                { edit &&
-                  <div>
-                  <hr class="hr-white animated fadeIn"/>
-                  <p class="subtitle animated fadeInDown">
-                    {durationOptions[appointment.duration]}
+                  <br/>
+                  <p class="title">{capatilizedType}</p>
+                  <p class="subtitle">
+                    {moment(appointment.date).format('M/DD h:mm a')}
                   </p>
-                  <p class="subtitle animated fadeInDown">{statusMap[appointment.status]}</p>
-                  <div class="is-divider" data-content="OR"></div>
+                  { edit &&
+                    <div>
+                    <hr class="hr-white animated fadeIn"/>
+                    <p class="subtitle animated fadeInDown">
+                      {durationOptions[appointment.duration]}
+                    </p>
+                    <p class="subtitle animated fadeInDown">{statusMap[appointment.status]}</p>
+                    <div class="is-divider" data-content="OR"></div>
 
-                  { addNote &&
-                    <div class="control animated fadeIn">
-                      <span class="icon is-small is-pulled-right" onClick={() => setaAddNote(!addNote)}>
-                        <Icon path={mdiWindowClose} size={0.7} color="white"/>
-                      </span>
-                      <textarea class="textarea is-outlined" placeholder={appointment.note} onChange={({ target }) => setNote(target.value)}></textarea>
-                      <br/>
-                    </div>
-                  }
-
-                  { showNotes && <p class="subtitle animated fadeInDown">Note - {appointment.note}</p> }
-
-                  <p class="buttons animated fadeInDown">
-                    { !addNote ?
-                      <a class="button is-primary is-inverted is-outlined" onClick={() => setaAddNote(!addNote)}>
-                        <span>{ initialNote ? 'Edit Note' : 'Add Note' }</span>
-                        <span class="icon is-small">
-                          <Icon path={mdiPlus} size={0.7} color="white"/>
+                    { addNote &&
+                      <div class="control animated fadeIn">
+                        <span class="icon is-small is-pulled-right" onClick={() => setaAddNote(!addNote)}>
+                          <Icon path={mdiWindowClose} size={0.7} color="white"/>
                         </span>
-                      </a> :
-                      <a class="button is-primary is-inverted is-outlined" onClick={() => handleClientUpdate()}>
-                        <span>Save</span>
+                        <textarea class="textarea is-outlined" placeholder={appointment.note} onChange={({ target }) => setNote(target.value)}></textarea>
+                        <br/>
+                      </div>
+                    }
+
+                    { showNotes && <p class="subtitle animated fadeInDown">Note - {appointment.note}</p> }
+
+                    <p class="buttons animated fadeInDown">
+                      { !addNote ?
+                        <a class="button is-primary is-inverted is-outlined" onClick={() => setaAddNote(!addNote)}>
+                          <span>{ initialNote ? 'Edit Note' : 'Add Note' }</span>
+                          <span class="icon is-small">
+                            <Icon path={mdiPlus} size={0.7} color="white"/>
+                          </span>
+                        </a> :
+                        <a class="button is-primary is-inverted is-outlined" onClick={() => handleClientUpdate()}>
+                          <span>Save</span>
+                          <span class="icon is-small">
+                            <Icon path={mdiCheck} size={0.7} color="white"/>
+                          </span>
+                        </a>
+
+                      }
+
+                      <a class="button is-primary is-inverted is-outlined" onClick={() => toggleModal(_id)}>
+                        <span>Cancel</span>
                         <span class="icon is-small">
-                          <Icon path={mdiCheck} size={0.7} color="white"/>
+                          <Icon path={mdiWindowClose} size={0.7} color="white"/>
                         </span>
                       </a>
 
-                    }
-
-                    <a class="button is-primary is-inverted is-outlined" onClick={() => toggleModal(_id)}>
-                      <span>Cancel</span>
-                      <span class="icon is-small">
-                        <Icon path={mdiWindowClose} size={0.7} color="white"/>
-                      </span>
-                    </a>
-
-                  </p>
-                  </div>
-                }
+                    </p>
+                    </div>
+                  }
 
 
-              </article>
-            </div>
+                </article>
+              </div>
             </div>
           </Fade>
         </li>

@@ -33,9 +33,6 @@
     "watch-css": "npm run build-css && node-sass-chokidar src/ -o src/ --watch --recursive",
     "build-css": "node-sass-chokidar --include-path ./src/styles src/ -o src/"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/helper-remap-async-to-generator": "^7.1.0",
