@@ -6,7 +6,7 @@ import DateTimePicker from 'react-datetime-picker';
 import Fade from 'react-reveal/Fade';
 import Icon from '@mdi/react'
 import {  mdiCloseCircleOutline, mdiDotsHorizontal, mdiCommentProcessingOutline, mdiPencilOutline, mdiWindowClose, mdiWrenchOutline, mdiPlusBoxOutline, mdiPlus, mdiCheck } from '@mdi/js'
-
+import classNames from 'classnames';
 
 export default function AppointmentItem (props){
 
@@ -47,7 +47,7 @@ export default function AppointmentItem (props){
           <Fade>
             <div>
 
-              <div class={edit ? "tile is-parent is-vertical grow more" : "tile is-parent is-vertical grow" }>
+              <div class={classNames('tile is-parent is-vertical grow', { more: edit })}>
                 <article class={className}>
 
                   <span class="icon has-text-info is-pulled-right " onClick={() => setEdit(!edit)}>

@@ -6,6 +6,7 @@
     "@mdi/js": "^4.4.95",
     "@mdi/react": "^1.2.1",
     "animate.css": "^3.7.2",
+    "classnames": "^2.2.6",
     "moment": "^2.24.0",
     "rc-time-picker": "^3.7.2",
     "react": "^16.9.0",
