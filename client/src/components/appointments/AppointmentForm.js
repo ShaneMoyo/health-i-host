@@ -44,67 +44,67 @@ export default function AppointmentForm(props) {
     return dispatch(bookAppointment({ date, type, status, duration })).then(() => setAppoitmentBooked(!appoitmentBooked))
   }
 
+  const disabledHours = () => {
+    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23];
+  }
+
+  const typeOptions = [
+    { value: 'massage', label: 'Massage Therapy' },
+    { value: 'mineral', label: 'Mineral Consultation' },
+    { value: 'movement', label: 'Movement' }
+  ];
+  const durationOptions = [
+    { value: 0.5, label: '30 Minutes' },
+    { value: 1, label: '1 Hour' },
+    { value: 1.5, label: '1 Hour 30 Minutes' },
+    { value: 2, label: '2 Hours' }
+  ];
+  if (appoitmentBooked) { return <Redirect to='/appointment/booked'/> }
+  return (
+        <div class="container has-text-centered">
+          <br/><br/>
+          <section class="hero is-warning is-fullheight">
+            <div class="column is-waring is-one-third is-offset-one-third">
+              <div class="box animated fadeIn is-warning" >
+                <div>
+                  <div class="field">
+                    <Select defaultValue={typeOptions[0]} options={typeOptions} onChange={({ value }) => setType(value)}/>
+                  </div>
+
+                  <div class="field">
+                    <Select defaultValue={durationOptions[1]} options={durationOptions} onChange={({ value }) => setDuration(value)}/>
+                  </div>
+
+                  <div class="field">
+                    <div calss="container">
+                      <DayPicker onDayClick={onDateChange}/>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <TimePicker
+                    showSecond={false}
+                    hideDisabledOptions={true}
+                    defaultValue={date}
+                    className="xxx"
+                    onChange={onTimeChange}
+                    disabledHours={disabledHours}
+                    format='h:mm a'
+                    minuteStep={30}
+                    use12Hours
+                    inputReadOnly
+                    />
+                  </div>
 
 
-    const typeOptions = [
-      { value: 'massage', label: 'Massage Therapy' },
-      { value: 'mineral', label: 'Mineral Consultation' },
-      { value: 'movement', label: 'Movement' }
-    ];
-    const durationOptions = [
-      { value: 0.5, label: '30 Minutes' },
-      { value: 1, label: '1 Hour' },
-      { value: 1.5, label: '1.5 Hours ' },
-      { value: 2, label: '2 Hours' }
-    ];
-    if (appoitmentBooked) { return <Redirect to='/appointment/booked'/> }
-    return (
-          <div class="container has-text-centered">
-            <br/><br/>
-            <section class="hero is-warning is-fullheight">
-              <div class="column is-waring is-one-third is-offset-one-third">
-                <div class="box animated fadeIn is-warning" >
-
-
-                      <div>
-
-                        <div class="field">
-                          <Select defaultValue={typeOptions[0]} options={typeOptions} onChange={({ value }) => setType(value)}/>
-                        </div>
-
-                        <div class="field">
-                          <Select defaultValue={durationOptions[1]} options={durationOptions} onChange={({ value }) => setDuration(value)}/>
-                        </div>
-
-                        <div class="field">
-                          <div calss="container">
-                            <DayPicker onDayClick={onDateChange}/>
-                          </div>
-                        </div>
-                        <div class="field">
-                          <TimePicker
-                          showSecond={false}
-                          defaultValue={date}
-                          className="xxx"
-                          onChange={onTimeChange}
-                          format='h:mm a'
-                          use12Hours
-                          inputReadOnly
-                          />
-                        </div>
-
-
-                        <hr/>
-                        <div class="field">
-                          <label class="label"></label>
-                          <button class="button is-medium is-info" onClick={handleSubmit}>Book Appointment</button>
-                        </div>
-                      </div>
-
-
+                  <hr/>
+                  <div class="field">
+                    <label class="label"></label>
+                    <button class="button is-medium is-info" onClick={handleSubmit}>Book Appointment</button>
+                  </div>
                 </div>
               </div>
-            </section>
-          </div>
-    );
+            </div>
+          </section>
+        </div>
+  );
 }
