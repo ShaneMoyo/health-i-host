@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppointmentForm should render correctly BookedSuccessfull component 1`] = `
+<div
+  class="container has-text-centered"
+>
+  <br />
+  <br />
+  <section
+    class="hero is-warning is-fullheight"
+  >
+    <div
+      class="column is-waring is-6 is-offset-3"
+    >
+      <div
+        class="box animated fadeIn is-warning"
+      >
+        <div>
+          <div
+            class="animated fadeIn title is-6"
+          >
+            Appointment Booked Succesfully
+          </div>
+          <br />
+          <div
+            class="animated fadeIn button is is-info"
+          >
+            <NavBarLink
+              exact={true}
+              to="/appointment/me"
+            >
+              Proceed to My Appointments
+            </NavBarLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+`;

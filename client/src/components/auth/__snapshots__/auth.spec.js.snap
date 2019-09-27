@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Auth should render correctly Auth component 1`] = `
+<Route>
+  <Component />
+</Route>
+`;
+
+exports[`Auth should render correctly Credentials component 1`] = `
+<div
+  class="is-warning "
+>
+  <div
+    class="column is-waring is-4 is-offset-4"
+  >
+    <div
+      class="box animated fadeIn is-warning"
+    >
+      <form
+        onSubmit={[Function]}
+      >
+        <h4
+          class="title has-text-grey"
+        >
+          Login
+        </h4>
+        <p
+          class="subtitle has-text-grey"
+        >
+          Please login to proceed.
+        </p>
+        <div
+          class="field"
+        >
+          <div
+            class="control"
+          >
+            <input
+              class="input is-medium"
+              name="email"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+        <div
+          class="field"
+        >
+          <div
+            class="control"
+          >
+            <input
+              class="input is-medium"
+              name="password"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+        <div
+          class="field has-text-centered"
+        >
+          <div
+            class="control has-text-centered"
+          />
+        </div>
+        <button
+          class="button is-outlined is-large is-info"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+`;
