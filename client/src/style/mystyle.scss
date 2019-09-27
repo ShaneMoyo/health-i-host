@@ -58,11 +58,11 @@ p {
 
 .hero.is-info {
   background: linear-gradient(
-  rgba(30,111,171, 0.7),
+  rgba(30,111,171, 0.4),
   rgba(41,177,206, 0.2),
-  rgba(255, 255, 255, 0.4),
+
   rgba(255, 255, 255, 1)
-    ), url('../assets/images/clouds.jpg') no-repeat center center fixed;
+    ), url('../assets/images/low-clouds.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
