@@ -12,10 +12,6 @@ export default function LandingMain() {
                   </div>
                 </article>
               </div>
-              <br/><br/><br/>
-              <br/><br/><br/>
-              <br/><br/><br/>
-              <br/>
             </div>
           </div>
         </section>
