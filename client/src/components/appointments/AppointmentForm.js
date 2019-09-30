@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import moment from 'moment'
 import Select from 'react-select'
 import DayPicker from 'react-day-picker';
 import TimePicker from 'rc-time-picker';
 import { bookAppointment } from './actions';
-import { NavLink, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import 'react-day-picker/lib/style.css';
 import 'rc-time-picker/assets/index.css';
 
-
-const NavBarLink = props => <NavLink {...props} className="nav-link" activeClassName="active"/>;
 
 export default function AppointmentForm() {
 
@@ -19,7 +17,6 @@ export default function AppointmentForm() {
   const [duration, setDuration] = useState(0.5);
   const [status, setStatus] = useState('pending');
   const [appoitmentBooked, setAppoitmentBooked] = useState(false);
-  const loading = useSelector(state => state.loading);
   const dispatch = useDispatch();
 
 

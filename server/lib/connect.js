@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = Promise;
-const defaultUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/healthihost-playground';
+const defaultUri = process.env.MONGODB_URI;
 
 module.exports = function(dbUri = defaultUri) {
     const promise = mongoose.connect(dbUri);

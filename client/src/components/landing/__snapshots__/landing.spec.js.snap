@@ -79,16 +79,6 @@ exports[`Landing should render correctly LandingMain component 1`] = `
           </div>
         </article>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   </div>
 </section>
@@ -126,16 +116,6 @@ exports[`Landing should render correctly LandingMain component 2`] = `
           </div>
         </article>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
     </div>
   </div>
 </section>
