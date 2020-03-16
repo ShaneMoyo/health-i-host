@@ -21,9 +21,9 @@ export default function Landing(){
           <div class="tile is-ancestor">
             <div class="tile is-vertical">
               <div class="tile">
-                <ServiceTile icon={mdiHumanHandsup} color="primary"/>
-                <ServiceTile icon={mdiGrain} color="warning"/>
-                <ServiceTile icon={mdiRun} color="success"/>
+                <ServiceTile icon={mdiHumanHandsup} color="primary" title="Massage Therapy" link="/massage"/>
+                <ServiceTile icon={mdiGrain} color="warning" title="Mineral Therapy" link="/minerals"/>
+                <ServiceTile icon={mdiRun} color="success" title="Movement Therapy" link="/movement"/>
               </div>
             </div>
           </div>
@@ -36,5 +36,5 @@ export default function Landing(){
         </Fade>
       </div>
     </body>
-  );  
+  );
 }
