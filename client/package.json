@@ -13,7 +13,7 @@
     "jest": "^24.9.0",
     "jest-cli": "^24.9.0",
     "jest-enzyme": "^7.1.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "prop-types": "^15.7.2",
     "rc-time-picker": "^3.7.2",
     "react": "^16.9.0",
